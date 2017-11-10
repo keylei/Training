@@ -42,13 +42,8 @@ int main()
     //计算解压出的误差：
     clacResultError(dataHeadPtrArr,decompressedPtrArr,arrLenArr);
 
-
-    //释放堆上开的所有数组空间：
-    for (int i = 0; i < ARR_CNT; ++i)
-    {
-        free((void *)dataHeadPtrArr[i]);
-        free((void *)decompressedPtrArr[i]);
-    }
+    free((void *)dataHeadPtrArr);
+    free((void *)decompressedPtrArr);
 }
 
 
@@ -70,12 +65,12 @@ void generateImgData(long int *dataHeadPtrArr,int *arrLenArr)
         arrLenArr[i] = generateRandomNum(MIX_ARR_LEN,MAX_ARR_LEN);
 
         //创建数组空间：
-        dataHeadPtrArr[i] = malloc(sizeof(float) * arrLenArr[i]);
+        dataHeadPtrArr[i] = malloc(sizeof(float*) * ARR_CNT);
 
         //生成数组中的数据：
         for (int j = 0; j < arrLenArr[i] ; ++j)
         {
-            ((float*)(dataHeadPtrArr[i]))[j] = (float) generateRandomNum(1,500000) / 100;
+            dataHeadPtrArr[i] =generateRandomNum(1,500000) / 100;
         }
     }
 }
@@ -100,7 +95,7 @@ void compressAndExportData(long int *dataHeadPtrArr,int *arrLenArr)
         if ( arrLenArr[i] < BLOCK_SIZE)
         {
             //若存在未压缩数组且下一个数组的长度不小于块大小，执行while中的代码以将数组压缩并导出：
-            while ( (arrLenArr[i + 1] >= BLOCK_SIZE) && (i != (ARR_CNT - 1)) )
+            while ( (arrLenArr[i + 1] >= BLOCK_SIZE) )
             {
                 //将压缩数组个数位置为1：
                 compressingArr[0] = 1;
@@ -120,8 +115,7 @@ void compressAndExportData(long int *dataHeadPtrArr,int *arrLenArr)
             //若存在未压缩数组：
             if( i != (ARR_CNT - 1) )
             {
-                //将压缩数组个数位置为2：
-                compressingArr[0] = 2;
+                compressingArr[i] = 2;
 
                 //更新文件名字符串：
                 sprintf(path,"./compressedData/chip%03d_chip%03d",i - indexOffset,i + 1);
@@ -140,7 +134,7 @@ void compressAndExportData(long int *dataHeadPtrArr,int *arrLenArr)
             else
             {
                 //将压缩数组个数位置为1：
-                ((char*)compressingArr)[0] = 1;
+                ((char*)compressingArr)[i] = 1;
 
                 //更新文件名字符串：
                 sprintf(path,"./compressedData/chip%03d",i - indexOffset);
@@ -189,7 +183,7 @@ void compressArr(float *souce,unsigned char *dest,short length)
     //压缩数据并写入目标地址：
     for (int i = 0; i < length; ++i)
     {
-        dest[HEADER_LEN + i] = (unsigned char)clacMapValue(1,255,1,5000,(int)souce[i]);
+        dest[i] = (unsigned char)clacMapValue(1,255,1,5000,(int)souce[i]);
     }
 }
 

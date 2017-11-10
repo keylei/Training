@@ -1,0 +1,12 @@
+//rime +1有配置文件的意识, 但是这里不建议用头文件的方式作为配置文件, 原因是头文件时会参与
+//             编译的,你修改了后需要再次编译程序才会生效
+
+//lynn171103:表示数量用cnt更好，将FLOAT_ARR_NUMBER改为FLOAT_ARR_CNT
+#define FLOAT_ARR_CNT 1000                          // 要生成的float数组个数
+#define MIN_ARR_LENGTH 2048                         // 要生成的数组的最小长度
+#define MAX_ARR_LENGTH 5000                         // 要生成的数组的最大长度
+#define DATA_MAX 5000                               // 每个数组中数据的最大值
+
+#define COMPRESSION_DATA_PATH "./compressedFiles/"  // 压缩出的数据的存放目录
+#define DIFF_PATH "./dataDiffValue/"   // 原数据和解压缩后数据的差值存储文件的存放目录
+#define FILE_PREFIX "chip"                          // 生成的压缩出的数据文件的前缀

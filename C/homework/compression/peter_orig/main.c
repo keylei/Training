@@ -98,7 +98,7 @@ void exportToFile( char* outputName,//rime 这里应该是导出的路径把，�
     if (strstr(outputName, ".txt") == NULL)     //^^!=NULL means exist
      {
         //输出为二进制
-         fwrite (byteArray , sizeof(unsigned char), length, file);
+         fwrite (&byteArray , sizeof(unsigned char), length, file);
      }
     else
     {
@@ -136,7 +136,7 @@ int main()//rime 所有复杂的逻辑堆在一个函数中是不合适的，超
         pixelCount += pixelCountArray[i];       //累加每次生成的像素点个数
     }
     //根据像素点总数分配内存
-    picPtr = malloc( sizeof(float) * pixelCount );
+    picPtr = malloc( sizeof(float*) * pixelCount );
     generalData(picPtr, pixelCount);            //调用函数生成每个像素点高度
     //<<<----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -330,7 +330,6 @@ int main()//rime 所有复杂的逻辑堆在一个函数中是不合适的，超
         }
         fclose(file);                           //关闭文件流指针
     }
-    (void) closedir (directPath);               //关闭文件夹
 
     free(diffExport);                           //释放指针
     diffExport = NULL;                          //置为NULL

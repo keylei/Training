@@ -12,14 +12,14 @@
 #define CHAR_SIZE_VALUE 255   // 一个Char字节保存的最大值
 #define HEADER_LEN 6          // 生成数据表头的长度
 
-void generateData(float * dataArr, int totalLen);
+void generateData(float * pDataArr, int totalLen);
 void findLimitValueInArr(int * dataArr, int dataCnt, int * limitArr , int dataIdx);
 void mappingDataToCharArr(int * limitArr, int * dataArr, int * arrLength,
                           unsigned char * destArr);
 void writeCharDataToFile(char * fileName,unsigned char * byteArr , int length);
 void compressDateAndOutputToFile(unsigned char * sourceDataArr, int * preDataLen , int * dataLen);
 void mappingDataToIntArr( int * limitArr, int * destArr, int arrLength,
-                         unsigned char * sourceArr );
+                          unsigned char * sourceArr );
 void decompressDataToFloatArr( float * destArr);
 void writeFloatToFile(char * fileName,float * floatDataArr , int length);
 
@@ -164,7 +164,7 @@ void compressDateAndOutputToFile(unsigned char * sourceDataArr, int * preDataLen
     // 轮询映射数组中的每个数据,并将小于4096的数据合并成一个数据,输出至文件
     for (int i = 0; i < IMAGE_COUNT; ++i)
     {
-        // 数据长度大于等于4096的直接输出
+        // 1.数据长度大于等于4096的直接输出
         if( dataLen[i] >= BLOCK_SIZE )
         {
             //轮询映射数组中的每个数据,并压缩至新的数组中
@@ -203,7 +203,7 @@ void compressDateAndOutputToFile(unsigned char * sourceDataArr, int * preDataLen
                 // 将映射的数据存入至压缩数组中
                 for (int j = 0; j < ( dataLen[i] + HEADER_LEN +1 ); ++j)
                 {
-                     shortByteArr[ shortFloatLen + 1 + HEADER_LEN + j ] = sourceDataArr[j + preDataLen[i - 1] + i * HEADER_LEN ];
+                    shortByteArr[ shortFloatLen + 1 + HEADER_LEN + j ] = sourceDataArr[j + preDataLen[i - 1] + i * HEADER_LEN ];
                 }
 
                 fileDataLen = dataLen[i] + dataLen[shortFloatIdx] + 2 * HEADER_LEN + 1 ;
@@ -238,7 +238,7 @@ void compressDateAndOutputToFile(unsigned char * sourceDataArr, int * preDataLen
             }
 
         }
-        // 如果所有数组轮询完后,仍有压缩文件的数据长度小于4096,直接压缩
+        // 2.如果所有数组轮询完后,仍有压缩文件的数据长度小于4096,直接压缩
         if(i == (IMAGE_COUNT-1) &&  0 != shortFloatCnt )
         {
 
@@ -260,7 +260,7 @@ void compressDateAndOutputToFile(unsigned char * sourceDataArr, int * preDataLen
 *  @return
 */
 void mappingDataToIntArr( int * limitArr, int * destArr, int arrLength,
-                         unsigned char * sourceArr )
+                          unsigned char * sourceArr )
 {
     int maxValue = limitArr[0];                 // 将最大值与最小值赋值给变量
     int minValue = limitArr[1];
@@ -340,7 +340,7 @@ void decompressDataToFloatArr( float * destArr)
             dataArr[firstArrIdx] = (int *)malloc(sizeof(int) * dataLen[firstArrIdx]);
             //将数据映射为整形数组
             mappingDataToIntArr( &limitValueArr[2 * firstArrIdx], dataArr[firstArrIdx],
-                                 dataLen[firstArrIdx] , dataCacheArr );
+                    dataLen[firstArrIdx] , dataCacheArr );
 
             if( arrCntInFile == 2)
             {
@@ -348,21 +348,21 @@ void decompressDataToFloatArr( float * destArr)
                 secondArrIdx = 100 * (file->d_name[12] - '0') + 10 * (file->d_name[13] - '0') + (file->d_name[14] - '0');
                 //获取数组的长度
                 dataLen[secondArrIdx] = 100 *(int) (dataCacheArr[ dataLen[firstArrIdx] + HEADER_LEN + 1 ]) +
-                                        (int)(dataCacheArr[ dataLen[firstArrIdx] +
-                                        HEADER_LEN + 2 ]);
+                        (int)(dataCacheArr[ dataLen[firstArrIdx] +
+                        HEADER_LEN + 2 ]);
                 //获取第二个数组的最大值
                 limitValueArr[2 * secondArrIdx] = 100 *(int) (dataCacheArr[ dataLen[firstArrIdx] + HEADER_LEN + 3 ]) +
-                                                  (int)(dataCacheArr[ dataLen[firstArrIdx] +
-                                                   HEADER_LEN + 4 ]);
+                        (int)(dataCacheArr[ dataLen[firstArrIdx] +
+                        HEADER_LEN + 4 ]);
                 //获取第二个数组的最小值
                 limitValueArr[2 * secondArrIdx + 1] = 100 *(int) (dataCacheArr[ dataLen[firstArrIdx] + HEADER_LEN + 5 ]) +
-                                                      (int)(dataCacheArr[ dataLen[firstArrIdx] +
-                                                       HEADER_LEN + 6 ]);
+                        (int)(dataCacheArr[ dataLen[firstArrIdx] +
+                        HEADER_LEN + 6 ]);
                 //开辟存放数据的数组空间
                 dataArr[secondArrIdx] = (int *)malloc(sizeof(int) * dataLen[secondArrIdx]);
                 //将数据映射为整形数组
                 mappingDataToIntArr( &limitValueArr[2 * secondArrIdx], dataArr[secondArrIdx],
-                                     dataLen[secondArrIdx] , & dataCacheArr[ dataLen[firstArrIdx] + HEADER_LEN] );
+                        dataLen[secondArrIdx] , & dataCacheArr[ dataLen[firstArrIdx] + HEADER_LEN] );
             }
         }
         close(fileCondition);
@@ -405,7 +405,6 @@ void writeFloatToFile(char * fileName,float * floatDataArr , int length)
 
 int main()
 {
-    srand( (unsigned)time( NULL ) );                 //初始化随机数
     int dataLen[IMAGE_COUNT];                        //声明图片大小的数组
 
     int limitValueArr[2 * IMAGE_COUNT];             //定义一个存放最大值与最小值数组
@@ -415,24 +414,17 @@ int main()
     int * intDataArr;                               //声明一个整形数据数组指针
     int dataTotalLen[IMAGE_COUNT];                  //声明数组前N项的总大小,并初始化
     unsigned char * mappingArr;                     //声明一个映射值的数组指针
-    float * dataDiffArr;                            //定义一个存放映射前后差值的数组
+    float* dataDiffArr;                            //定义一个存放映射前后差值的数组
 
     // 随机生成数组的长度,并统计数组长度的前N项和
     for (int i = 0; i < IMAGE_COUNT; ++i)
     {
         dataLen[i] = (rand() % 2953) + 2048;         //获得任意一个图片大小(2048-5000)
         // 统计数组长度前N项的和
-        if(0 != i)
-        {
-            dataTotalLen[i] = dataLen[i] + dataTotalLen[i-1];     //计算数据的总大小
-        }
-        else
-        {
-            dataTotalLen[i] = dataLen[i] ;     //计算数据的总大小
-        }
+        dataTotalLen[i] = dataLen[i] + dataTotalLen[i-1];     //计算数据的总大小
     }
     //开辟存放数据的空间
-    floatDataArr = (float*)malloc( dataTotalLen[IMAGE_COUNT-1] * sizeof(float) );
+    floatDataArr = (float*)malloc( dataTotalLen[IMAGE_COUNT-1] * sizeof(float*) );
     //开辟存放整形数据的空间
     intDataArr = (int *)malloc( dataTotalLen[IMAGE_COUNT-1] * sizeof(int) );
     // 开辟存放映射数组的空间
@@ -450,7 +442,7 @@ int main()
     }
 
     // 生成数据
-    generateData(floatDataArr,dataTotalLen[IMAGE_COUNT-1]);
+    generateData(floatDataArr,dataTotalLen[IMAGE_COUNT]);
 
     //将数据转换成整形
     for (int i = 0; i < dataTotalLen[IMAGE_COUNT-1]; ++i)
@@ -461,14 +453,7 @@ int main()
     //找出整数组中的最大值,与最小值
     for (int i = 0; i < IMAGE_COUNT; ++i)
     {
-        if( i != 0)
-        {
-             findLimitValueInArr(intDataArr+dataTotalLen[i-1], dataLen[i], limitValueArr, i);
-        }
-        else
-        {
             findLimitValueInArr(intDataArr, dataLen[i], limitValueArr, i);
-       }
     }
 
     //将数组中的数据,映射到char形数组中
@@ -491,20 +476,12 @@ int main()
     {
         sprintf(filePath,"/home/bob/datadiff/chip%03d_diff",i);
 
-        if( i != 0)
-        {
-            writeFloatToFile(filePath, &dataDiffArr[dataTotalLen[i-1]] , dataLen[i]);
-        }
-        else
-        {
-            writeFloatToFile(filePath, dataDiffArr, dataLen[i]);
-        }
+        writeFloatToFile(filePath, dataDiffArr, dataLen[i]);
     }
 
     free(floatDataArr);
     free(intDataArr);
     free(mappingArr);
-    free(decompressDataArr);
     free(dataDiffArr);
     floatDataArr = NULL;
     intDataArr = NULL;

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>框架</title>
+</head>
+
+<!-- 通过使用框架，你可以在同一个浏览器窗口中显示不止一个页面 -->
+<body>
+    <!-- 设置属性值为 "0" 移除iframe的边框: -->
+    <iframe src="demo_iframe.htm" width="200" height="200" frameborder="0"></iframe>
+    <iframe src="demo_iframe.htm" name="iframe_a" width="200" height="200"></iframe>
+
+    <!-- iframe可以显示一个目标链接的页面
+    目标链接的属性必须使用iframe的属性，如下实例:当点击连接是，网页中的内容会在iframe中显示 -->
+    <p><a href="http://www.runoob.com" target="iframe_a">RUNOOB.COM</a></p>
+</body>
+</html>

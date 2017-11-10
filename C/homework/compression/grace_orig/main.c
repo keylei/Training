@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+//#include <stdlib.h>
+//#include <string.h>
+//#include <unistd.h>
 #include <dirent.h>
-#include <sys/stat.h>
+//#include <sys/stat.h>
 #include <time.h>
 
 //>>>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@
 *            arrCount：数组长度
 *  @return   float * : 返回保存数据的指针
 */
-float *generateData(short *arrLength,int arrCount)
+float *generateData(short* arrLength,int arrCount)
 {
     float *dPtr = NULL;      //存放生成的随机数，返回指针
     int arrLengthSum = 0;    //数组总长度
@@ -48,7 +48,7 @@ float *generateData(short *arrLength,int arrCount)
     }
 
     //2：申请数据空间
-    dPtr = (float *)malloc(arrLengthSum * sizeof(float));
+    dPtr = (float *)malloc(arrLengthSum * sizeof(float*));
     if(dPtr == NULL)
     {
         printf("内存开辟失败！");
@@ -61,7 +61,7 @@ float *generateData(short *arrLength,int arrCount)
     {
         for(int dataCountI = 0;dataCountI < arrLength[arrCountI]; ++dataCountI)
         {
-            *(dPtr + arrLengthSum + dataCountI) = RANDOM_ARR_DATA;  // 存储产生的随机数据
+            *(dPtr  + arrLengthSum + dataCountI) = RANDOM_ARR_DATA;  // 存储产生的随机数据
         }
         arrLengthSum += arrLength[arrCountI];
     }
@@ -404,7 +404,7 @@ int main()
     mkdir("./data",0777);                        //创建目录
     mkdir("./diff",0777);
 
-    float *dataArr;
+    float* dataArr;
     short arrLength[ARR_COUNT];
 
     dataArr = generateData(arrLength,ARR_COUNT); //数据生成

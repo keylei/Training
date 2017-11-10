@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+
+    <!-- 表格由 <table> 标签来定义。每个表格均有若干行（由 <tr> 标签定义），
+    每行被分割为若干单元格（由 <td> 标签定义）。字母 td 指表格数据（table data），
+    即数据单元格的内容。数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等。 -->
+
+    <body>
+        <p>
+            每个表格从一个Table开始
+            每行从tr标签开始
+            每个表格数据从td标签开始
+        </p>
+
+        <!-- 如果不定义边框属性，表格将不显示边框。有时这很有用，但是大多数时候，我们希望显示边框。 -->
+    <h4>一列:</h4>
+    <table>
+        <tr>
+            <td>100</td>
+        </tr>
+    </table>
+
+
+    <h4>一行3列:</h4>
+    <table border="1">
+        <tr>
+            <td>100</td>
+            <td>100</td>
+            <td>100</td>
+        </tr>
+    </table>
+
+    <!-- 表格的表头使用 <th> 标签进行定义。
+            大多数浏览器会把表头显示为粗体居中的文本： -->
+    <h4>两行3列:</h4>
+    <table border="1">
+        <tr>
+                <th>Header1</th>
+                <th>Header2</th>
+            </tr>
+        <tr>
+            <td>100</td>
+            <td>200</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>500</td>
+            <td>600</td>
+        </tr>
+    </table>
+
+    <h4>花哨一点的:</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+       <tbody>
+            <tr>
+                <td>1</th>
+                <td>1</th>
+            </tr>
+       </tbody>
+       <tfoot>
+            <tr>
+                <td>Total</th>
+                <td>2</th>
+            </tr>
+       </tfoot>
+    </table>
+
+    </body>
+</html>

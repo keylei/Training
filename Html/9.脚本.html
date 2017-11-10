@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>标签用于定义客户端脚本，比如JavaScript
+         <script>元素既可以包含脚本语句，也可以通过src属性指向外部脚本文件
+         JavaScript最常用于图片操作，表单验证以及内容动态更新 -->
+    <script>document.write("Hello World!")</script>
+    <!-- <noscript>标签提供了无法使用脚本时的替代内容，比方在浏览器禁用脚本时，
+        或浏览器不支持客户端脚本时 -->
+    <noscript>抱歉，你的浏览器不支持</noscript>
+
+    <!-- 一些JavaScript实例代码 -->
+    <script>
+        document.write("<h1>这是一个标题。</h1>");
+        document.write("<p>这是一个段落。</p>");
+    </script>
+    
+    <h1>这是我的第一个JavaScript</h1>
+    <p id="demo">
+        JavaScript 可以触发事件，就像按钮点击
+    </p>
+
+    <!-- JavaScript事件响应 -->
+    <script>
+    function func()
+    {
+        document.getElementById("demo").innerHTML="Hello JavaScript!"
+    }
+    </script>
+    <button type="button" onclick="func()">点击输出文本</button>
+
+    <!-- JavaScript处理HTML样式 -->
+    <script>
+        function func1()
+        {
+            x=document.getElementById("demo")//找到元素
+            x.style.color="#ff0000";//改变样式
+        }
+    </script>
+    <button type="button" onclick="func1()">点击改变样式</button>
+</body>
+</html>

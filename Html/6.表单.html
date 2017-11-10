@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单</title>
+</head>
+
+<!-- HTML表单用于搜集不同类型的用户输入 -->
+<body>
+    <!-- 表单本身并不可见，同时，在大多数浏览器中，文本域的缺省宽度是20个字符 -->
+    <form>
+        First name: <input type="text" name="firstname"><br>
+        Last name: <input type="text" name="lastname">
+    </form>
+
+    <!-- 密码字段字符并不会明文显示，而是以星号或圆点替代 -->
+    <form>
+        Password: <input type="password" name="pwd"><br>
+    </form>
+
+    <!-- 单选按钮 -->
+    <form>
+        <input type="radio" name="sex" value="male">Male<br>
+        <input type="radio" name="sex" value="female">Female
+    </form>
+
+    <!-- 复选框 -->
+    <form>
+        <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+        <input type="checkbox" name="vehicle" value="Car">I have a car
+    </form>
+
+    <input type="submit"> 定义了提交按钮.
+    <!-- 当用户单击确认按钮时，表单的内容会被传送到另一个文件。表单的动作属性定义了目的文件的文件名。
+    由动作属性定义的这个文件通常会对接收到的输入数据进行相关的处理。 -->
+    <!-- 提交按钮 -->
+    <form name="input" action="html_form_action.php" method="get">
+        Username: <input type="text" name="user">
+                  <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

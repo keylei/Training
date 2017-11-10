@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<!-- 网站布局
+    1.大多数网站会把内容安排到多个列中
+    2.大多数网站使用<div>或者<table>元素来创建多列，CSS用于对元素进行定位，
+      或者为页面创建背景以及色彩丰富的外观
+-->
+<body>
+    <!-- 
+    div元素用于分组HTML元素的块级元素。
+    下面的例子使用5个div元素来创建多列布局 -->
+    <!-- <div id="container" style="width:500px">
+        <div id="header" style="background-color:#FFA500;">
+            <h1 style="margin-bottom:0;">主要的网页标题</h1>
+        </div>
+
+        <div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+            <b>菜单</b>
+            <br>HTML<br>
+            CSS<br>
+            JavaScript</div>
+        </div>
+
+        <div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
+                内容在这里
+        </div>
+
+        <div id="footer" style="background-color:#FFA500;clear:both;text-align:center">
+                版权 © runoob.com
+        </div>
+    </div> -->
+
+    <!-- 使用表格布局
+    下面的例子使用三行两列的表格 - 第一和最后一行使用 colspan 属性来横跨两列： -->
+    <table width="500" border="0">
+        <tr>
+            <td colspan="2" style="background-color:#FFA500;">
+                <h1>主要的网页标题</h1>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="background-color:#FFD700;width:100px">
+                <b>菜单</b><br>
+                HTML<br>
+                CSS<br>
+                JavaScript
+            </td>
+            <td style="background-color:#eeeeee;height:200px;width:400px">
+                内容在这里
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="background-color:#FFA500;text-align:center;">
+                版权 © runoob.com
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
