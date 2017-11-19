@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>SSDK/Exception/ExceptionDemoDlg.qml</file>
+        <file>SSDK/Exception/ExceptionMessageBox.qml</file>
+    </qresource>
+</RCC>

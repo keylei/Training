@@ -1,0 +1,22 @@
+{
+    "m_name": "xu",
+    "m_age": 34,
+    "m_id": 1.0,
+    "m_students": [
+        {
+            "m_name": "ming",
+            "m_age": 20,
+            "m_id": 2
+        },
+        {
+            "m_name": "wang",
+            "m_age": 22,
+            "m_id": 3
+        }
+    ],
+    "m_assisant": {
+        "m_name": "wang",
+        "m_age": 22,
+        "m_id": 3
+    }
+}

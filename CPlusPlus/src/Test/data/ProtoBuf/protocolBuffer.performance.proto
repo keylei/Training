@@ -1,0 +1,24 @@
+package protocolBuffer;
+message performance
+{
+    required int32     ID = 1;
+    required int64     KPIID = 2;
+    required int64   CODE = 3;
+    required int32   V1 = 4 ;
+    required int32    V2 = 5;
+    required double    V3 = 6;
+    required string    V4 = 7;
+    required double    V5 = 8;
+    required double    V6 = 9;
+    required double    V7 = 10;
+    required double    V8 = 11;
+    required double    V9 = 12;
+    required double    V10 = 13;
+    required double    V11 = 14;
+    required double    V12 = 15;
+    required double    V13 = 16;
+    required double    V14 = 17;
+    required double    V15 = 18;
+    required double    V16 = 19;
+    required double    V17 = 20;
+}

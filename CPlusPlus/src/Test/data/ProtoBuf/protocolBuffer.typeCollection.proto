@@ -1,0 +1,27 @@
+ package protocolBuffer;
+ message typeCollection
+ { 
+    required int32     int32ID = 1;
+    required int64     int64ID = 2;
+    optional uint32   uint32ID = 3;
+    required uint64   uint64ID = 4 ;
+    required sint32    sint32ID = 5;
+    required sint64    sint64ID = 6;
+    required fixed32 fint32ID = 7;
+    required fixed64  fint64ID = 8;
+    required sfixed32 sfint32ID = 9;
+    required sfixed64 sfint64ID = 10;
+
+    required bool   isNull  = 11;
+    required string  name = 12;
+    required float height = 13;
+    required double with = 14;
+
+    enum NestedEnum {
+      MOBILE = 0;
+      HOME = 1;
+      WORK = 2;
+    }
+    optional NestedEnum enumVal = 15;
+
+ }
