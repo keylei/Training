@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ID和class选择器</title>
+    <!-- style可以写在html同一个文件中，具体是在header的style中 -->
+    <style>
+        /* 这是一个id选择器，只能用于特定的html元素设定样式 */
+        #para1
+        {
+            text-align: center;
+            color:red;
+        }
+
+        /* 这是class选择器，可以在多个元素中使用 */
+        .center
+        {
+            text-align: center;
+        }
+
+        /* 使用class选择器也可以指定特定的元素使用class */
+        p.center1
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="para1">Hello World!</p>
+    <P>这个段落不受该样式的影响</P>
+
+    <h1 class="center">标题居中</h1>
+    <p class="center">段落居中</p>
+
+    <h1 class="center1">这个标题不受影响</h1>
+    <p class="center1">这个段落居中对齐</p>
+</body>
+</html>

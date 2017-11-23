@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<!-- HTML5 新的表单元素
+    <datalist>
+    <keygen>
+    <output>
+-->
+
+<body>
+    <!-- <input list="browsers"> -->
+
+    <!-- datalist元素规定了输入域的选项列表
+    属性规定form或input域应该拥有自动完成功能,当用户在自动完成域中开始输入时,
+    浏览器应该在该域中显示填写的选项
+    使用<input>元素的列表属性与<datalist>元素绑定 -->
+    <datalist id="browsers">
+        <option value="IE"></option>
+        <option value="Firefox"></option>
+        <option value="Chrome"></option>
+        <option value="Opera"></option>
+        <option value="Safari"></option>
+    <datalist>
+
+    <!-- keygen元素的作用时提供一种验证用户的可靠方法, 标签规定用于表单的秘钥对生成器
+    字段.当提交表单时,会生成两个键,一个是私钥,一个公钥 -->
+    <!-- 私钥存储与客户端,公钥则被发送到服务器.公钥可用于之后验证用户的客户端书 -->
+    <!-- <form action="demo_keygen.asp" method="get">
+        用户名:<input type="text" name="usr_name">
+        加密:<keygen name="security">
+        <input type="submit">
+    </form>
+
+    <!-- 元素用于不同类型的输出,比如计算或脚本输出 -->
+    <!-- 注意,这里的oninput是个大元素，它包含了input和output元素 -->
+    <!-- 这里for描述计算中使用的元素与计算结果之间的关系。不加都没关系-->
+    <!-- <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="range" id="a" value="50"> 
+        <input type="number" id="b" value="50">
+        <output name="x" for="a b"></output>
+    </form> -->
+
+    <!-- autocomplete -->
+    <!-- autocomplete 属性规定form或input域应该拥有自动完成功能
+    当用户在自动完成域中开始输入时，浏览器应该在该域中显示填写的选项
+    提示:autocomplete属性有可能在form元素中时开启的，而在input元素中时关闭的
+    注意:autocomplete使用于<form>标签，以及一下类型的<input>标签:text,search,url
+    telephone,email,password,datapickers,range以及color -->
+    <!-- 在form中开启autocomplete(一个input字段关闭autocomplete) -->
+    <!-- <form action="demo-form.php" autocomplete="on">
+        First name:<input type="text" name="fname"><br>
+        Last name:<input type="text" name="lname"><br>
+        E-mail:<input type="email" name="email" autocomplete="off"><br>
+        <input type="submit">
+    </form> -->
+
+    <!-- <form>novalidate属性 -->
+    <!-- novalidate属性时一个bool属性，规定在提高表单时不应该验证form或input域 -->
+    <!-- <form action="demo-form.php" novalidate>
+        E-mail:<input type="email" name="user_email">
+        <input type="submit"> -->
+
+    <!-- autofocus属性是一个boolean属性
+    autofocus属性规定在页面加载时，域自动的获得焦点 -->
+    <!-- First name:<input type="text" name="fname" autofocus> --> -->
+
+    <!-- form属性规定输入域所属的一个或多个表单
+    提示:如需引用一个以上的表单，请使用空格分隔的列表 -->
+    <!-- <form action="demo-form.php" id="form1">
+        First name:<input type="text" name="fname"><br>
+        <input type="submit" value="提交">
+    </form> -->
+<!-- 位于form表单之外，但通过form="form1"仍然可以时form表单的一部分 -->
+    <!-- Last name:<input type="text" name="lname" form="form1"> -->
+
+    <!-- formaction -->
+    <!-- The formaction 属于用于描述表单提交的URL地址
+    The formaction 属于会覆盖<form>元素中的action属性
+    注意: The formaction 属性用于type="submit"和type=“image" -->
+    <!-- <form action="demo-post_enctype.php" method="post">
+        First name:<input type="text" name="fname"><br>
+        Last name:<input type="text" name="lname"><br>
+        <input type="submit" value="提交">
+        <input type="submit"  formaction="demo-admin.php" value="提交">
+    </form> -->
+
+    <!-- <input> formenctype 属性 -->
+    <!-- <form action="demo-post_enctype.php" method="post"> -->
+            <!-- First name:<input type="text" name="fname"><br> -->
+            <!-- 第一个提交按钮已默认编码发送表单数据 -->
+            <!-- <input type="submit" value="提交"> -->
+            <!-- 第二个提交按钮以"multipart/form-data"编码格式发送表单数据 -->
+            <!-- <input type="submit"  formenctype="multipart/form-data" value="以Multipart/form-data提交"> -->
+    <!-- </form> -->
+
+    <!-- height 和 width 属性规定用于 image 类型的 <input> 标签的图像高度和宽度。-->
+    <!-- <form action="demo-post_enctype.php" method="post"> -->
+            <!-- First name:<input type="text" name="fname"><br> -->
+            <!-- 第一个提交按钮已默认编码发送表单数据 -->
+            <!-- <input type="image" src="webChat.png" alt="Submit" width="48" height="48"> -->
+            <!-- 第二个提交按钮以"multipart/form-data"编码格式发送表单数据 -->
+            <!-- <input type="submit"  formenctype="multipart/form-data" value="以Multipart/form-data提交"> -->
+    <!-- </form> -->
+
+    <!-- input的list属性 -->
+    <!-- <form action="demo-form.php" method="get">
+            <input list="browsers" name="browser">
+            <datalist id="browsers">
+              <option value="Internet Explorer">
+              <option value="Firefox">
+              <option value="Chrome">
+              <option value="Opera">
+              <option value="Safari">
+            </datalist>
+            <input type="submit">
+    </form> -->
+
+        <!-- min max step属性用于包含数组或日期的input类型规定限定 -->
+    <!-- <form action="demo-form.php">
+    输入 1980-01-01 之前的日期:
+    <input type="date" name="bday" max="1979-12-31"><br>
+    输入 2000-01-01 之后的日期:
+    <input type="date" name="bday" min="2000-01-02"><br>
+    数量 (在1和5之间):
+    <input type="number" name="quantity" min="1" max="5"><br>
+    <input type="submit"> -->
+<!-- </form> -->
+
+<!-- <input> multiple 属性 规定input元素中可以选择多个值 -->
+<!-- <form action="demo-form.php" method="get">
+        选择图片: <input type="file" name="img" multiple>
+        <input type="submit">
+</form> -->
+
+<!-- <input> placeholder 属性
+placeholder 属性提供一种提示（hint），描述输入域所期待的值。 -->
+<!-- <form action="demo-form.php">
+        <input type="text" name="fname" placeholder="First name"><br>
+        <input type="text" name="lname" placeholder="Last name"><br>
+        <input type="submit" value="提交">
+    </form> -->
+
+<!-- <input> required 属性 -->
+<!-- required 属性规定必须在提交之前填写输入域（不能为空）。 -->
+<!-- <form action="demo-form.php">
+        Username: <input type="text" name="usrname" required>
+        <input type="submit">
+</form> -->
+
+<!-- <input> step 属性 -->
+<!-- step 属性为输入域规定合法的数字间隔。
+如果 step="3"，则合法的数是 -3,0,3,6 等
+提示： step 属性可以与 max 和 min 属性创建一个区域值. -->
+    <form action="demo-form.php">
+        <input type="number" name="points" step="3">
+        <input type="submit">
+    </form>
+
+</body>
+</html>

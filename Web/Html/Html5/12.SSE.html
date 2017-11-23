@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Server-Sent事件指网页自动获取来与服务器的更新 -->
+    <title>Server-Sent 事件</title>
+</head>
+<body>
+    <!-- EventSource对象用于接受服务器发送事件通知 -->
+    <h1>获取服务端更新数据</h1>
+    <div id="result"></div>
+
+    <script>
+        if(typeof(EventSource)!=="undefined")
+        {
+            var source = new EventSource("demo_sse.php");
+            source.onmessage=function(event)
+            {
+                document.getElementById("result").innerHTML+=event.data+"<br>";
+            };
+        }
+        else
+        {
+            document.getElementById("result").innerHTML="抱歉，你的浏览器不支持 server-sent 事件...";
+        }
+    </script>
+</body>
+</html>

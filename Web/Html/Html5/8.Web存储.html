@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- <script>
+        function clickCounter()
+        {
+            if(typeof(Storage)!=="undefined")
+            {
+                if(localStorage.clickcount) 
+                {
+                    localStorage.clickcount=Number(localStorage.clickcount)+1;
+                }
+                else
+                {
+                    localStorage.clickcount=1;
+                }  
+                document.getElementById("result").innerHTML=" 你已经点击了按钮 "+localStorage.clickcount+" 次";
+        
+                // // 使用key="sitename"和value="菜鸟教程"创建一个localStorage键值对
+                // // 检索键值为"sitename"的值然后对数据插入id="result"的元素中
+                // localStorage.sitename="菜鸟教程";
+                // document.getElementById("result").innerHTML="网站名:"+localStorage.sitename;
+            }
+            else
+            {
+                document.getElementById("result").innerHTML="对不起,您的浏览器不支持Web存储"
+            }
+        }
+    </script> -->
+
+    <!-- sessionStorage方法针对一个session进行数据存储,当用户关闭浏览器窗口后,数据会被删除 -->
+    <script>
+        function clickCounter()
+        {
+            if(typeof(Storage)!=="undefined")
+            {
+                if(sessionStorage.clickcount) 
+                {
+                    sessionStorage.clickcount=Number(sessionStorage.clickcount)+1;
+                }
+                else
+                {
+                    sessionStorage.clickcount=1;
+                }  
+                document.getElementById("result").innerHTML=" 你已经点击了按钮 "+sessionStorage.clickcount+" 次";
+            }
+            else
+            {
+                document.getElementById("result").innerHTML="对不起,您的浏览器不支持Web存储"
+            }
+        }
+    </script>
+</head>
+<body>
+    <p><button onclick="clickCounter()" type="button">点我</button></p>
+    <div id="result"></div>
+    <p>点击该按钮查看计数器的增加</p>
+    <p>关闭浏览器选项卡,重新打开此页面,计数器继续计数(不是重置)</p>
+
+<!-- 客户端存储数据的两个对象为:
+1.localStorage 没有时间限制的数据存储
+2.sessionStorage 针对一个session的数据存储 -->
+
+<!-- localStorage对象存储的数据没有时间限制,第二天,第二周或下一年之后,数据依然可用
+<div id="result"></div>
+<script>
+    if(typeof(Storage)!=="undefined")
+    {
+        // // 使用key="sitename"和value="菜鸟教程"创建一个localStorage键值对
+        // // 检索键值为"sitename"的值然后对数据插入id="result"的元素中
+        // localStorage.sitename="菜鸟教程";
+        // document.getElementById("result").innerHTML="网站名:"+localStorage.sitename;
+    }
+    else
+    {
+        document.getElementById("result").innerHTML="对不起,您的浏览器不支持Web存储"
+    }
+</script> -->
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<!-- MathML时数学标记语言,是一种基于XML(标准通过标记语言的子集)的标准 -->
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    
+    <!-- 这里的代码chrome并支持,使用Mozilla Firefox可以 -->
+    <!-- a2+b2=c2 -->
+    <mrow>
+        <msup><mi>a</mi><mn>2</mn></msup>
+        <mo>+</mo>
+
+        <msup><mi>b</mi><mn>2</mn></msup>
+        <mo>=</mo>
+
+        <msip><mi>c</mi><mn>2</mn></msip>
+    </mrow>
+
+    <!-- x2+4x=4=0 -->
+    <mrow>
+        <mrow>
+            <msup><mi>x</mi><mn>2</mn></msup>
+            <mo>+</mo>
+        </mrow>
+            
+        <mrow>
+                <mn>4</mn>
+                <mo></mo>
+                <mi>x</mi>
+        </mrow>
+            
+        <mo>+</mo>
+        <mn>4</mn>
+    </mrow>
+
+    <mo>=</mo>
+    <mn>0</mn>
+
+    <!-- 2*2矩阵 -->
+    <mrow>
+        <mi>A</mi>
+        <mo>=</mo>
+
+        <mfenced open="[" close="]">
+            <mtable>
+                <mtr>
+                    <mtd><mi>x</mi></mtd>
+                    <mtd><mi>y</mi></mtd>
+                </mtr>
+
+                <mtr>
+                    <mtd><mi>z</mi></mtd>
+                    <mtd><mi>w</mi></mtd>
+                </mtr>
+
+            </mtable>
+        </mfenced>
+
+    </mrow>
+</math>
+
+<body>
+    
+</body>
+</html>

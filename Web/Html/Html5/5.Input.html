@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="demo-form.php">
+        选择你喜欢的颜色:    <!-- 选择你喜欢的颜色 -->
+        <input type="color" name="favcolor"><br>
+        <input type="submit">
+        </input>
+
+        <!-- 生日:date类型可以从一个日期选择器选择一个日期 -->
+        <input type="date" name="bday">
+        <input type="submit" >
+
+        <!-- datetime似乎没有啥效果,chrome和Firefox都一样 -->
+        <!-- datetime选择一个日期 -->
+        生日:<input type="datetime" name="bdaytime">
+        <input type="submit">
+
+        <!-- 定义一个日期和时间 -->
+        生日 (日期和时间):<input type="datetime-local" name="bdaytime">
+        <input type="submit">
+
+        <!-- 定义一个Email -->
+        E-mail:<input type="email" name="email">
+        <input type="submit">
+
+        <!-- 定义月份 -->
+        生日(月和年):<input type="month" name="bdaymonth">
+        <input type="submit">
+
+        <!-- 用于包含数值的输入域,submit就可以触发防呆机制 -->
+        数量(1到5之间):<input type="number" name="quantity" min="1" max="5">
+        <input type="submit">
+
+        <!-- range,包含一定范围内数字值的输入域 -->
+        Points:<input type="range" name="points" min=1 max="10" step="0.5" value="5">
+        <input type="submit">
+
+        <!-- search 定义一个搜索字段 -->
+        Search Google:<input type="search" name="googlesearch">
+
+        <!-- 定义输入电话号码 -->
+        电话号码:<input type="tel" name="usrtel">
+        <input type="submit">
+
+        <!-- 选择时间 -->
+        选择时间:<input type="time" name="usr_time">
+        <input type="submit">
+
+        <!-- Input类型:url -->
+        添加你的主页:<input type="url" name="homepage">
+        <input type="submit">
+
+        <!-- 选择周和年 -->
+        选择周:<input type="week" name="year_week">
+        <input type="submit">
+    </form>
+</body>
+</html>

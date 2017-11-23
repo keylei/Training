@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{width:400px;height:400px;padding: 10px;border:1px solid #aaaaaa;}
+    </style>
+
+    <script>
+        function allowDrop(ev)
+        {
+            ev.preventDefault();
+        }
+
+        function drag(ev)
+        {
+            // dataTransfer.setData()方法设置被拖数据的类型和值
+            // 数据类型是Text,值是可拖动元素的id("drag1")
+            ev.dataTransfer.setData("Text",ev.target.id);
+        }
+
+        function drop(ev)
+        {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+<body>
+
+代码解释:
+<!-- 1.如果要支持拖放,必须使用preventDefault来避免浏览器对数据的默认处理,drop默认行为是以链接形式打开 -->
+<!-- 2.通过dataTransfer.getData("Text")来获得被拖放的数据.该方法将返回setData设置为相同类型的任何数据-->
+<!-- 3.被拖数据是id为"drag1"的元素 -->
+<!-- 4.把被拖元素追防到放置元素(目标元素中) -->
+
+<p>拖动图片到矩形框中:</p>
+<!-- ondragover事件规定在何处放置被拖动的数据 -->
+<!-- 默认地,无法将数据/元素放置到其他元素中,如果需要设置允许放置,必须阻止对元素的默认处理方式
+这要通过调用ondragover时间的event.preventDefault()方式 -->
+
+<!-- 当放置被拖数据时,会发生drop事件,这里调用了一个drag函数 -->
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+
+<!-- 为了使元素可拖动,把draggable设置为true -->
+<!-- ondragstart属性调用了一个函数,drag(event),它规定了被拖动的数据-->
+<img id="drag1" src="webChat.png" draggable="true" ondragstart="drag(event)"
+ width="336" height="336">    
+
+</body>
+</html>

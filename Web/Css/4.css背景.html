@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4.css背景</title>
+
+    <style>
+    /* 页面的背景颜色使用在body的选择器 */
+    body
+    {
+        background-color: #b0c4de;
+        background-image: url('webChat.png');
+        /* 设置背景图像在哪个方向重复 */
+        background-repeat: repeat-x;
+        /* 设置不平铺 */
+        background-repeat: no-repeat;
+        /* 利用background-position 属性改变图像在背景中的位置 */
+        background-position: right top;
+
+        /* 上面的背景属性可以使用简写属性 */
+        background: #ffffff url('webChat.png') no-repeat right top;
+    }
+    h1
+    {
+        background-color: #6495ed;
+    }
+    p
+    {
+        background-color:#e0ffff;
+    }
+    div
+    {
+        background-color:#E11E11;
+    }
+    </style>
+</head>
+<body>
+    <h1>我的CSS的web页!</h1>
+    <p>Hello, world!</p>
+
+    <div>
+        该文本插入在div元素中
+        <p>该段落有自己的背景颜色</p>
+        我们仍然在同一个div中
+    </div>
+</body>
+</html>

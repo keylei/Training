@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        [if lt IE 9]
+            <script src="http://cdn.static.runoob.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+        [endif]
+    </title>
+    <!-- 你可以为HTML添加新的元素，该实例向HTML添加新的元素，并为
+    该元素定义样式，元素名为<myHero> -->
+    <script>
+        // 为浏览器添加新的元素
+        document.createElement("myHero")
+    </script>
+
+    <style>
+        /* 这里定义的样式已经继承了style的属性了,这种结构等于是创建一个自定义的样式对象 */
+        myHero{
+            display: block;
+            background-color: #ddd;
+            padding: 50px;
+            font-size: 30px;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+    <h1>我的第一个标题</h1>
+    <p>我的第一个段落</p>
+    <myHero>我的第一个元素</myHero>
+</body>
+</html>

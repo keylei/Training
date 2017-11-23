@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- 每个指定了mainfest的页面在用户对其访问时都会被缓存,如果为指定manifest属性,则页面不会被缓存 -->
+manifest文件建议的文件扩展名是.appcache
+<html lang="en" manifest="demo_html.appcache">
+    <!-- 使用html5,通过创建cache mainifest文件,可以轻松的创建web应用的离线版本 -->
+
+    <!-- 应用程序缓存为应用带来3个优势:
+    1.离线浏览-用户在应用离线使用它们
+    2.速度-已缓存资源加载的更快
+    3.减小服务器负载-浏览器将只从服务器下载更新过更改的资源 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>应用程序缓存</title>
+</head>
+
+<body>
+    <p id="timePara">
+        <button onclick="getDataTime()">获取时间和时间</button>
+    </p> 
+</body>
+
+</html>

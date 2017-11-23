@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- 一个语义元素能够清楚的描述其意义给浏览器和开发者 -->
+<!-- 无语义: 元素实例:<div>和<span>无需考虑内容 -->
+<!-- 语义元素实例:<form>,<table>,<img>清楚的定义了它的内容-->
+
+<!-- Section定义了文档中的节，比如章节，页眉，页脚或文档中的其它部分 -->
+<section>
+    <h1>WWF</h1>
+    <p>The World wide fund for Nature(WWF) is ...</p>
+</section>
+
+<!-- article定义独立的内容
+使用实例: Forum post,Blog post,News story, Comment -->
+<article>
+    <h1>Internet Explore 9</h1>
+    <p>Windows Internet Explorer 9 在2011年3月14日发布</p>
+
+    <!-- header 元素描述了文档的头部区域
+    元素注意用于定义内容的介绍展示区域
+    在页面中你可以使用多个<header>元素
+    以下实例定义了文章的头部 -->
+    <header>
+        <h1>Internet Explore 9</h1>
+        <p><time pubdate datetime="2011-03-15"></time></p>
+    </header>
+
+    <!-- 
+    元素描述了文档的底部区域
+    元素应该包含它的包含元素，一个页脚通常包含了文档的作者，著作权信息，链接的使用条款，联系信息等
+    文档中你可以使用多个<footer>元素 -->
+    <footer>
+        <p>Posted by: Hege Refsnes</p>
+        <p><time pudate datetime="2012-03-01"</p>
+    </footer>
+
+    <p>Windows Internet Explore9(缩写为IE9)是在2011年3月14日21:00发布的</p>
+</article>
+
+<!-- nav定义导航链接的部分
+元素用于定义页面的导航链接部分区域，但是，不是所有的链接都需要包含在<nav>元素中 -->
+<nav>
+    <a href="/html">HTML</a>|
+    <a href="/css">CSS</a>|  
+    <a href="/js">JS</a>|  
+    <a href="/jquery">JQUERY</a>      
+</nav>   
+
+<!-- aside标签定义页面主区域内容之外的内容(比如侧边栏) -->
+<p>My family and I visited The Epcot center this summer.</p>
+
+<aside>
+    <h4>Epcot Center</h4>
+    <P>The Epcot Center is a theme park in Disney World,Floarida.</P>
+</aside>
+
+<!-- figure标签规定独立的流内容(图像，图标，照片，代码等等)
+figure元素的应该与主内容相关，但如果被删除，则不应对文档产生影响
+figcaption标签定义figure元素的标题
+figcaption元素应该被置于figute元素的第一个或最后一个子元素的位置 -->
+<figure>
+    <img src="webChat.png" alt="The pulpit rock" width="304" height="228"></img>
+    <figcaption>Fig1. - The Pulpit Pock, Norway.</figcaption>
+</figure>
+
+
+</body>
+</html>

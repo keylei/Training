@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 如果某些属性在不同的样式表中被同样的选择器定义，那么属性值将从更具体的样式表中被继承过来 -->
+
+<!-- 外部样式表拥有针对 h3 选择器的三个属性 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="3.多重样式.css">
+    <title>3.多重样式</title>
+
+    <!-- 内部样式表拥有针对 h3 选择器的两个属性： -->
+    <style>
+    h3
+    {
+        text-align:right;
+        font-size:20pt;
+    }
+    </style>
+
+</head>
+<!-- 一般情况下，优先级如下：
+内联样式）Inline style > （内部样式）Internal style sheet >（外部样式）External style sheet > 浏览器默认样式 -->
+<body>
+    <h3>同时拥有内部样式表和外部样式表链接</h3>
+</body>
+</html>
