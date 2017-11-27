@@ -1,23 +1,23 @@
-//#include <iostream>
+// #include <iostream>
 
-//#include "circle.hpp"
-//#include "ellipse.hpp"
+// #include "circle.hpp"
+// #include "ellipse.hpp"
 
-//using namespace std;
+// using namespace std;
 
-//int main()
-//{
+// int main()
+// {
 //    //>>>----------------------------------------------------------------------------------------------------------
 //    //1.访问权限
-////    Circle circle(2);
-////    //可以直接访问public的成员
-////    circle.calcArea();
-////    //如果要访问private的成员，可以通过访存函数
-////    cout << "Radius is:" << circle.radius() << "\n";
+// //    Circle circle(2);
+// //    //可以直接访问public的成员
+// //    circle.calcArea();
+// //    //如果要访问private的成员，可以通过访存函数
+// //    cout << "Radius is:" << circle.radius() << "\n";
 
-////    //子类可以访问父类protected的成员
-////    Ellipse ellipse(2,3);
-////    ellipse.calcArea();
+// //    //子类可以访问父类protected的成员
+// //    Ellipse ellipse(2,3);
+// //    ellipse.calcArea();
 
 //    //>>>----------------------------------------------------------------------------------------------------------
 //    // 成员函数
@@ -26,4 +26,4 @@
 //    cout << Circle::getType()<<endl;
 
 //    return 0;
-//}
+// }

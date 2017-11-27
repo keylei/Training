@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>css链接</title>
+
+    <!-- 链接的样式，可以用任何CSS属性（如颜色，字体，背景等）。
+        特别的链接，可以有不同的样式，这取决于他们是什么状态。
+        这四个链接状态是：
+        a:link - 正常，未访问过的链接
+        a:visited - 用户已访问过的链接
+        a:hover - 当用户鼠标放在链接上时
+        a:active - 链接被点击的那一刻 -->
+
+        <!-- text-decoration 属性主要用于删除链接中的下划线： -->
+        <!-- 背景颜色属性指定链接背景色 -->
+    <style>
+        /* 未访问链接 */
+        a:link {
+            color: #000000;
+            text-decoration:none;
+            background-color:#B2FF99;
+        }
+
+        /* 已访问链接 */
+        a:visited {
+            color: #00FF00;
+            text-decoration:none;
+            background-color:#FFFF85;
+        }
+
+        /* 鼠标移动到链接上 */
+        a:hover {
+            color: #FF00FF;
+            text-decoration:none;
+            background-color:#FF704D;
+        }
+
+        /* 鼠标点击时 */
+        a:active {
+            color: #0000FF;
+            background-color:#FF704D;
+        }
+    </style>
+</head>
+
+<p><b><a href="/css/" target="_blank">这是一个链接</b></p>
+<p><b>注意:</b>a:hover 必须在a:link和a:visited之后,需要严格按照顺序才能看到效果</a></p>
+<p><b>注意:</b>a:active 必须在a:hover之后.</p>
+    
+
+
+</html>

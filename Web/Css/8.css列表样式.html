@@ -1,0 +1,91 @@
+<DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>8.css列表样式</title>
+        <style>
+            /* list-style-type属性指定列表项标记的类型是：: */
+
+            ul.a {
+                list-style-type: circle;
+            }
+
+            ul.b {
+                list-style-type: square;
+            }
+
+            ol.c {
+                list-style-type: upper-roman;
+            }
+
+            ol.d {
+                list-style-type: lower-alpha;
+            }
+
+            /* 作为列表项标记的图像 */
+
+            ul.d {
+                /* list-style-image: url('webChat.png'); */
+                /* list-style: square url("webChat.png") */
+            }
+
+            /* 上面的例子在所有浏览器中显示并不相同，IE和Opera显示图像标记比火狐，Chrome和Safari更高一点点。
+如果你想在所有的浏览器放置同样的形象标志，就应使用浏览器兼容性解决方案，过程如下 */
+
+            ul 
+            {
+                list-style-type: none;/*设置列表样式类型为没有删除列表项标记*/
+                padding: 0px;/*设置填充和边距0px*/
+                margin: 0px;
+            }
+
+            ul li
+            {
+                /* 设置图像的URL,并设置为只显示一次 */
+                background-image: url('webChat.png');
+                background-repeat: no-repeat;
+                /* 需要定位的图像位置(左0px和上下5px) */
+                background-position: 0px 5px;
+                /* 用padding-left属性把文本置于列表中 */
+                padding-left: 14px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p>无序列表实例:</p>
+
+        <ul class="a">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+        </ul>
+
+        <ul class="b">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+        </ul>
+
+        <ul class="d">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+        </ul>
+
+        <p>有序列表实例:</p>
+
+        <ol class="c">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+        </ol>
+
+        <!-- 在单个属性中可以指定所有的列表属性。这就是所谓的简写属性。 -->        
+        <ol class="d">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+        </ol>
+    </body>
+</DOCTYPE>

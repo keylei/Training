@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>10.css盒子模型</title>
+    <style>
+        div {
+            background-color: lightgrey;
+            width: 300px;
+            border: 25px solid green;
+            padding: 25px;
+            margin: 25px;
+        }
+
+        /* 最终元素的总宽度计算公式是这样的：
+总元素的宽度=宽度+左填充+右填充+左边框+右边框+左边距+右边距
+元素的总高度最终计算公式是这样的：
+总元素的高度=高度+顶部填充+底部填充+上边框+下边框+上边距+下边距 */
+
+        div.ex {
+            width: 200px;
+            padding: 10px;
+            border: 5px solid gray;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>盒子演示模型</h2>
+    <p>CSS盒模型本质上是一个盒子,封装周围的HTML元素,它包括:边距,边框,填充和实际内容</p>
+    <div>这里是盒子内的实际内容,有25px内间距,25px外间距,25px绿色边框</div>
+
+    <img src="webChat.png" width="250" height="250" />
+    <div class="ex">上面的图片是250px宽. 这个元素的总宽度也是250px.</div>
+</body>
+
+</html>
