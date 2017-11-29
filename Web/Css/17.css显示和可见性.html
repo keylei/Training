@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>17.css显示和可见性</title>
+        <style>
+            /* visibility:hidden可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间。
+            也就是说，该元素虽然被隐藏了，但仍然会影响布局。 */
+            /* h1.hidden{visibility: hidden;} */
+
+            /* display:none可以隐藏某个元素，且隐藏的元素不会占用任何空间。也就是说，该元素不但被隐藏了，
+            而且该元素原本占用的空间也会从页面布局中消失 */
+            h1.hidden {display:none;}
+
+            li{display: inline;}
+
+            /* span{display: block;} */
+        </style>
+    </head>
+
+    <body>
+        <h1>这是一个可见标题</h1>
+        <h1 class="hidden">这是一个隐藏标题</h1>
+        <p>注意，实例中隐藏标题仍然占用空间</p>
+
+        <p>链接列表水平显示：</p>
+        <li><a href="/html/" target="_blank">HTML</a></li>
+        <li><a href="/css/" target="_blank">CSS</a></li>
+        <li><a href="/js/" target="_blank">JavaScript</a></li>
+        <li><a href="/xml/" target="_blank">XML</a></li>
+
+        <h2>Nirvana</h2>
+        <span>Record: MTV Unplugged in New York</span>
+        <span>Year: 1993</span>
+
+        <h2>Radiohead</h2>
+        <span>Record: OK Computer</span>
+        <span>Year: 1997</span>
+    </body>
+</html> 

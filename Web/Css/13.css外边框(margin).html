@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>13.css外边框(margin)</title>
+        <!-- margin清除周围的元素(外边框)的区域,margin没有背景颜色, 是完全透明的
+        margin可以单独改变元素的上下左右边距,也可以一次改变所有的属性 -->
+        <style>
+            p
+            {
+                background-color: yellow;
+            }
+            p.margin
+            {
+                margin-top: 100px;
+                margin-bottom: 100px;
+                margin-right: 50px;
+                margin-left: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p>这是一个没有指定边距大小的段落</p>
+        <p class="margin">这是一个指定边距大小的段落</p>
+    </body>
+</html>

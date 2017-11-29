@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<!-- CSS Padding（填充）属性定义元素边框与元素内容之间的空间。 -->
+<!-- 
+当元素的Padding被清除时,所"释放"的区域将会受到元素背景颜色的填充
+单独使用填充属性可以改变上下左右的填充,缩写填充属性也可以使用,一旦
+改变一切都改变 -->
+
+<head>
+    <meta charset="utf-8">
+    <title>14.css填充(Padding)</title>
+    <style>
+    p{
+        background-color: yellow;
+    }
+    p.padding
+    {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        padding-right: 20px;
+        padding-left: 1000px;
+    }
+    </style>
+</head>
+
+<body>
+<p>这是一个没有指定填充边距的段落</p>
+<p class="padding">这是一个指定填充边距的段落</p>
+</body>
+
+</html>

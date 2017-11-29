@@ -7,4 +7,9 @@ SOURCES += \
     1.zero_compare.cpp \
     2.nullptr.cpp \
     3.const.cpp \
-    4.define.cpp
+    4.define.cpp \
+    vector.cpp \
+    list.cpp \
+    deque.cpp \
+    map.cpp \
+    note.cpp
