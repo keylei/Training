@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>21.css后续兄弟选择器</title>
+        <style>
+            div~p
+            {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>之前段落，不会添加背景颜色</h1>
+        <div>
+            <p>段落1. 在div中</p>
+            <p>段落2. 在div中</p>
+        </div>
+
+        <p>段落3. 不在div中</p>
+        <p>段落4. 不在div中</p>
+    </body>
+</html>

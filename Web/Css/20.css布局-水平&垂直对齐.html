@@ -1,24 +1,126 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>2.css布局</title>
-        <style>
-           .center{
+
+<head>
+    <meta charset="utf-8">
+    <title>2.css布局</title>
+    <style>
+        /*如果不设置width属性(或者设置100%)，居中将不起作业*/
+
+        /* .center{
                margin: auto;
                width: 60%;
                border: 3px solid #73AD21;
                padding: 10px;
-           }
-        </style>
-    </head>
+               text-align: center;
+           } */
 
-    <body>
-    <h2>元素居中对齐</h2>
+        img {
+            display: block;
+            margin: auto;
+            width: 40%;
+        }
+
+        .right {
+            position: absolute;
+            right: 0px;
+            width: 300px;
+            background-color: #b0e0e6;
+            padding: 10px;
+        }
+
+        .left {
+            float: left;
+            width: 300px;
+            border: 3px #73AD21;
+            padding: 10px;
+        }
+
+        /* 垂直居中，使用padding */
+        /* .center {
+            padding: 70px 0;
+            border: 3px solid green;
+            text-align: center;
+        } */
+
+        /* 垂直居中， 使用line-height */
+        /* .center{
+            line-height:200px;
+            height:200px;
+            border:3px solid green;
+            text-align: center;
+        }
+
+        .center p{
+            line-height: 1.5;
+            display: inline-block;
+            vertical-align: middle;
+        } */
+
+        /* 垂直居中，使用position和transform */
+        .center{
+            height:200px;
+            position: relative;
+            border: 3px solid green
+        }
+
+        .center p{
+            margin: 0;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h2>元素居中对齐</h2>
     <p>水平居中块级元素(如div)，可以使用margin：auto;</p>
 
     <div class="center">
         <p><b>注意:</b>使用 margin:auto 无法兼容 IE8, 除非 !DOCTYPE 已经声明。</p>
     </div>
-    </body>
-</html> 
+
+    <div class="center">
+        <p>文本居中对齐</p>
+    </div>
+
+    <h2>图片居中对齐</h2>
+    <p>要让图片居中对齐, 可以使用 margin: auto; 并将它放到块元素中：</p>
+    <img src="webChat.png" alt="Paris" style="width:40%">
+
+    <h2>右对齐</h2>
+    <p>以下实例演示了如何使用position来实现右对齐：</p>
+
+    <div class="right">
+        <p>学的不仅是技术，更是梦想！！</p>
+    </div>
+
+    <h2>左对齐</h2>
+    <p>以下实例演示了使用 float 属性来实现左对齐:</p> -->
+
+    <!-- <div class="left">
+      <p>我老爹在小时候给我的一些人生建议，我现在还记忆深刻。</p>
+    </div> -->
+
+    <!-- <div class="center">
+        <p>我是垂直居中的</p>
+    </div> -->
+<!-- 
+    <h2>Centering</h2>
+    <p>以下实例，我们使用padding和text-align让div元素和水平和垂直方向都居中</p>
+
+    <div class="center">
+        <p>卧室水平和垂直都居中的</p>
+    </div> -->
+
+    <h2>居中</h2>
+    <p>以下实例中，我们让 line-height 属性值和 height 属性值相等来设置 div 元素居中：</p>
+    <div class="center">
+            <p>我是垂直居中的。</p>
+     </div>
+</body>
+
+
+</html>

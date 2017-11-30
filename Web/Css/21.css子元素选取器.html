@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>21.子元素选取器</title>
+        <style>
+            div>p
+            {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Welcome to my homepage</h1>
+        <div>
+            <h2>>My name is Donald</h2>
+            <p>I live in Duckburg.</p>
+        </div>
+
+        <div>
+            <span><p>I will not be styled.</p></span>
+        </div>
+
+        <p>My best friend is Mickey.</p>
+    </body>
+</html>
