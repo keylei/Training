@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>27.css拥有图片背景的透明文本框</title>
+    <style>
+        div.background {
+            width: 500px;
+            height: 250px;
+            background: url(webChat.png) repeat;
+            border: 2px solid black;
+        }
+
+        div.transbox {
+            width: 400px;
+            height: 180px;
+            margin: 30px 50px;
+            background-color: #ffffff;
+            border: 1px solid black;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+        }
+
+        div.transbox p {
+            margin: 30px 40px;
+            font-weight: bold;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="transbox">
+            <P>
+                This is some text that is placed in the transparent box. This is some text that is placed in the transparent box. This is
+                some text that is placed in the transparent box. This is some text that is placed in the transparent box.
+                This is some text that is placed in the transparent box.
+            </P>
+        </div>
+    </div>
+</body>
+
+</html>
