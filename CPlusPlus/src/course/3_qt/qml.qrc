@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>0_hello.qml</file>
+        <file>Page1.qml</file>
+        <file>Page1Form.ui.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>1_object_expression.qml</file>
+        <file>images/cplusplus_desktop.jpeg</file>
+        <file>images/cat.jpeg</file>
+        <file>3_property.qml</file>
+        <file>4_basicElement.qml</file>
+    </qresource>
+</RCC>
