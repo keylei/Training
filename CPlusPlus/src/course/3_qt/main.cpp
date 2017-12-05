@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
      //必须以"qrc:"作为前缀
-    engine.load(QUrl(QLatin1String("qrc:/4_basicElement.qml")));
+    engine.load(QUrl(QLatin1String("qrc:/Chapter1/9_image.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
 

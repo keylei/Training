@@ -1,13 +1,21 @@
 <RCC>
     <qresource prefix="/">
-        <file>0_hello.qml</file>
-        <file>Page1.qml</file>
-        <file>Page1Form.ui.qml</file>
+        <file>Chapter1/0_hello.qml</file>
+        <file>Chapter1/1_object_expression.qml</file>
+        <file>Chapter1/3_property.qml</file>
+        <file>Chapter1/3_qt.pro</file>
+        <file>Chapter1/4_anchors.qml</file>
+        <file>Chapter1/5_basicElement.qml</file>
+        <file>Chapter1/6_KeyBoard.qml</file>
+        <file>Chapter1/Page1.qml</file>
+        <file>Chapter1/Page1Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>1_object_expression.qml</file>
-        <file>images/cplusplus_desktop.jpeg</file>
-        <file>images/cat.jpeg</file>
-        <file>3_property.qml</file>
-        <file>4_basicElement.qml</file>
+        <file>main.cpp</file>
+        <file>qrc_qml.cpp</file>
+        <file>Images/cplusplus_desktop.jpeg</file>
+        <file>Images/cat.jpeg</file>
+        <file>Chapter1/7_Text.qml</file>
+        <file>Chapter1/8_button.qml</file>
+        <file>Chapter1/9_image.qml</file>
     </qresource>
 </RCC>
