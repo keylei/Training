@@ -667,6 +667,10 @@ qrc_qml.cpp: qml.qrc \
 		qtquickcontrols2.conf \
 		Images/cat.jpeg \
 		Images/cplusplus_desktop.jpeg \
+		Chapter2/3_object.qml \
+		Chapter2/2_type.qml \
+		Chapter2/4_array.qml \
+		Chapter2/1_variant.qml \
 		Chapter1/0_hello.qml \
 		Chapter1/3_property.qml \
 		Chapter1/1_object_expression.qml \

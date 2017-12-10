@@ -17,5 +17,9 @@
         <file>Chapter1/7_Text.qml</file>
         <file>Chapter1/8_button.qml</file>
         <file>Chapter1/9_image.qml</file>
+        <file>Chapter2/1_variant.qml</file>
+        <file>Chapter2/2_type.qml</file>
+        <file>Chapter2/3_object.qml</file>
+        <file>Chapter2/4_array.qml</file>
     </qresource>
 </RCC>
