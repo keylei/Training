@@ -667,10 +667,18 @@ qrc_qml.cpp: qml.qrc \
 		qtquickcontrols2.conf \
 		Images/cat.jpeg \
 		Images/cplusplus_desktop.jpeg \
+		Chapter3/3_CheckBox.qml \
+		Chapter3/4_GroupBox.qml \
+		Chapter3/5_ComboBox.qml \
+		Chapter3/1_Text.qml \
+		Chapter3/2_RadioButton.qml \
 		Chapter2/3_object.qml \
 		Chapter2/2_type.qml \
-		Chapter2/4_array.qml \
+		Chapter2/7_Qt_Object.qml \
+		Chapter2/4_func.qml \
+		Chapter2/6_QML_Basic_Type.qml \
 		Chapter2/1_variant.qml \
+		Chapter2/5_console.qml \
 		Chapter1/0_hello.qml \
 		Chapter1/3_property.qml \
 		Chapter1/1_object_expression.qml \
@@ -679,7 +687,6 @@ qrc_qml.cpp: qml.qrc \
 		Chapter1/7_Text.qml \
 		Chapter1/5_basicElement.qml \
 		Chapter1/9_image.qml \
-		Chapter1/3_qt.pro \
 		Chapter1/8_button.qml \
 		Chapter1/4_anchors.qml \
 		Chapter1/Page1.qml \

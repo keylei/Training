@@ -3,7 +3,6 @@
         <file>Chapter1/0_hello.qml</file>
         <file>Chapter1/1_object_expression.qml</file>
         <file>Chapter1/3_property.qml</file>
-        <file>Chapter1/3_qt.pro</file>
         <file>Chapter1/4_anchors.qml</file>
         <file>Chapter1/5_basicElement.qml</file>
         <file>Chapter1/6_KeyBoard.qml</file>
@@ -20,6 +19,14 @@
         <file>Chapter2/1_variant.qml</file>
         <file>Chapter2/2_type.qml</file>
         <file>Chapter2/3_object.qml</file>
-        <file>Chapter2/4_array.qml</file>
+        <file>Chapter2/4_func.qml</file>
+        <file>Chapter2/5_console.qml</file>
+        <file>Chapter2/6_QML_Basic_Type.qml</file>
+        <file>Chapter2/7_Qt_Object.qml</file>
+        <file>Chapter3/1_Text.qml</file>
+        <file>Chapter3/2_RadioButton.qml</file>
+        <file>Chapter3/3_CheckBox.qml</file>
+        <file>Chapter3/4_GroupBox.qml</file>
+        <file>Chapter3/5_ComboBox.qml</file>
     </qresource>
 </RCC>

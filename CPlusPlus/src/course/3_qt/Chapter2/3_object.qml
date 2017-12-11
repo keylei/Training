@@ -8,6 +8,18 @@ ApplicationWindow
     width:800;
     height: 600;
 
+    property var rime: new Object();
+    property var array: new Array();
+    property int  age: 10;
+
+    function replacer(key, value){
+        switch(key){
+        case "name":
+            return "Zhang San";
+        }
+        return value;
+    }
+
     Rectangle{
         id: root;
         Component.onCompleted: {
@@ -118,7 +130,73 @@ ApplicationWindow
             console.log(textColor.a);
 
             //>>>----------------------------------------------------------------------------------------------------------
-            //5.Date
+            //5.Global
+            //内置对象指不需要实例化就可以使用的本地对象，ES5定义了三个内置对象:Global,Math和JSON
+
+            //Global 对象接管了没有不属于任何对象的属性和函数
+            console.log("Global----------------------------------------------------------------");
+            console.log(isNaN(1));
+            var obj;
+            console.log(isNaN(obj));
+            console.log(isFinite(1/0));
+            console.log(parseInt("2.1"));
+
+            var uri = "http://dict.youdao.com/w/parse/#keyfrom=dict2.top"
+            //encodeuri用处处理完成的uri
+            var encodeUri = encodeURI(uri);
+            //encodeURIComponent用于处理URI的一个片段
+            var encodedComponent = encodeURIComponent(uri);
+
+            //encodeURI 不对URI的特殊字符进行编码，如冒号，前斜杠，问号等
+            //encodeURIComponent 对所有的非标准字符进行编码
+            console.log(encodeUri);
+            console.log(encodedComponent);
+
+            var decodeUri = decodeURI(encodeUri);
+            var decodeComponent = decodeURIComponent(encodedComponent);
+            console.log(decodeUri);
+            console.log(decodeComponent);
+
+            //eval执行一段ES脚本，但是参数只能是原始字符串
+            var s = "8+7";
+            console.log(eval(s));
+            var s2 = new String("9+10");
+            console.log(eval(s2));
+
+            //>>>----------------------------------------------------------------------------------------------------------
+            //6.JSON对象
+            console.log("JSON----------------------------------------------------------------");
+            array[0] = "version";
+            array[1] = 2.3;
+            console.log(JSON.stringify(array));//数组转为json字符串
+
+            //stringify object
+            rime.name = "rime";
+            rime.mobile = "13888888888";
+            rime.age = 20;
+            rime.country = "China";
+
+            console.log(JSON.stringify(rime));//对象转为json字符串
+            console.log(JSON.stringify(rime, null, 4));//
+            console.log(JSON.stringify(rime, ["name", "mobile"], "  "));
+            console.log(JSON.stringify(rime, replacer));
+
+            //use toJSON
+            rime.toJSON = function(key){
+                var replacement = new Object();
+                for(var p in this){
+                    if (typeof (this[p]) === 'string'){
+                        replacement[p] = this[p].toUpperCase();
+                    }else{
+                        replacement[p] = this[p];
+                    }
+                }
+                return replacement;
+            }
+            console.log(JSON.stringify(rime));
+
+            //>>>----------------------------------------------------------------------------------------------------------
+            //7.Date
             console.log("Date----------------------------------------------------------------");
             var day0 = new Date();//表示当前时间
             console.log(day0.toString());
