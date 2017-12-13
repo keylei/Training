@@ -8,13 +8,22 @@ class A
 public:
     A(){}
     ~A(){ std::cout << "销毁A对象" << std::endl;}
+
+    int num() const;
+    void setNum(int num);
+
+private:
+    int m_num;
 };
 
 class B
 {
 public:
-    B(){}
+    B(){ std::cout << "B" << std::endl; }
     ~B(){ std::cout << "销毁B对象" << std::endl; }
+
+private:
+    int m_num{100};
 };
 
 class Cube
@@ -32,17 +41,24 @@ public:
      *
      *
      */
-//    Cube();//如果定义了参数构造函数，同时没有定义默认构造函数的话，是不能进行默认初始化的
+    Cube();//如果定义了参数构造函数，同时没有定义默认构造函数的话，是不能进行默认初始化的
 
-//    当类存在单一参数的构造函数时，编译器在类的构造时会帮我们进行隐式转换，虽然这一定程度上简化了编码
-     explicit  Cube(int side);
+    //    当类存在单一参数的构造函数时，编译器在类的构造时会帮我们进行隐式转换，虽然这一定程度上简化了编码
+    explicit  Cube(int side);
 
-    ~Cube()
+     ~Cube()
     {
         try
         {
-            delete m_a;
-            delete m_b;
+            if(nullptr!=m_a)
+            {
+                delete m_a;
+                m_a = nullptr;
+            }
+
+            if(nullptr != m_b)
+                delete m_b;
+
             std::cout << m_side <<std::endl;
             std::cout << "Destructor called" <<std::endl;
         }
@@ -60,16 +76,18 @@ public:
     int side() const{return m_side;}
     void setSide(int side){m_side = side;}
 
+    A* a()const{return this->m_a;}
+
 private:
     //1.如果有一个成员没有进行初始化，同时没有显式定义默认的构造函数的话，那么会调用
     //   编译器默认生成的默认构造函数，会多一次调用
     //2.如果全部成员都初始化的话，不会调用默认构造函数，效率会高一些
-    int m_side{ 1 };
+    int m_side{0};
     double d{0.1*2/3};
     float f{0.01};
 
-    A* m_a;
-    B* m_b;
+    A* m_a {nullptr};
+    B* m_b {nullptr};
 };
 
 #endif // CUBE_HPP

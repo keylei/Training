@@ -10,7 +10,6 @@
         <file>Chapter1/Page1Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>main.cpp</file>
-        <file>qrc_qml.cpp</file>
         <file>Images/cplusplus_desktop.jpeg</file>
         <file>Images/cat.jpeg</file>
         <file>Chapter1/7_Text.qml</file>
@@ -23,10 +22,15 @@
         <file>Chapter2/5_console.qml</file>
         <file>Chapter2/6_QML_Basic_Type.qml</file>
         <file>Chapter2/7_Qt_Object.qml</file>
-        <file>Chapter3/1_Text.qml</file>
-        <file>Chapter3/2_RadioButton.qml</file>
-        <file>Chapter3/3_CheckBox.qml</file>
-        <file>Chapter3/4_GroupBox.qml</file>
-        <file>Chapter3/5_ComboBox.qml</file>
+        <file>Chapter3/01_Text.qml</file>
+        <file>Chapter3/02_RadioButton.qml</file>
+        <file>Chapter3/03_CheckBox.qml</file>
+        <file>Chapter3/04_GroupBox.qml</file>
+        <file>Chapter3/05_ComboBox.qml</file>
+        <file>Chapter3/06_ProgressBar.qml</file>
+        <file>Chapter3/07_TabBar.qml</file>
+        <file>Chapter3/08_Slider.qml</file>
+        <file>Chapter3/09_Flickable.qml</file>
+        <file>Chapter3/10_ScrollBar.qml</file>
     </qresource>
 </RCC>
