@@ -32,5 +32,13 @@
         <file>Chapter3/08_Slider.qml</file>
         <file>Chapter3/09_Flickable.qml</file>
         <file>Chapter3/10_ScrollBar.qml</file>
+        <file>Chapter4/01_Row.qml</file>
+        <file>Chapter4/02_Column.qml</file>
+        <file>Chapter4/03_Grid.qml</file>
+        <file>Chapter4/04_Flow.qml</file>
+        <file>Chapter4/07_GridLayout.qml</file>
+        <file>Chapter4/05_RowLayout.qml</file>
+        <file>Chapter4/06_ColumnLayout.qml</file>
+        <file>Chapter5/01_Signal.qml</file>
     </qresource>
 </RCC>

@@ -675,6 +675,14 @@ qrc_qml.cpp: qml.qrc \
 		qtquickcontrols2.conf \
 		Images/cat.jpeg \
 		Images/cplusplus_desktop.jpeg \
+		Chapter5/01_Signal.qml \
+		Chapter4/01_Row.qml \
+		Chapter4/07_GridLayout.qml \
+		Chapter4/03_Grid.qml \
+		Chapter4/05_RowLayout.qml \
+		Chapter4/02_Column.qml \
+		Chapter4/06_ColumnLayout.qml \
+		Chapter4/04_Flow.qml \
 		Chapter3/03_CheckBox.qml \
 		Chapter3/04_GroupBox.qml \
 		Chapter3/08_Slider.qml \

@@ -15,9 +15,11 @@
  //    //如果要访问private的成员，可以通过访存函数
      cout << "Radius is:" << circle.radius() << "\n";
 
- //    //子类可以访问父类protected的成员
- //    Ellipse ellipse(2,3);
- //    ellipse.calcArea();
+     //子类可以访问父类protected的成员
+     Ellipse ellipse(2,3);
+     ellipse.calcArea();
+
+
 
     //>>>----------------------------------------------------------------------------------------------------------
     // 成员函数
