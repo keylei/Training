@@ -40,5 +40,8 @@
         <file>Chapter4/05_RowLayout.qml</file>
         <file>Chapter4/06_ColumnLayout.qml</file>
         <file>Chapter5/01_Signal.qml</file>
+        <file>Chapter5/02_Mouse.qml</file>
+        <file>Chapter5/03_Keys.qml</file>
+        <file>Chapter5/04_Timer.qml</file>
     </qresource>
 </RCC>

@@ -53,6 +53,7 @@ ApplicationWindow
     //2. 需要在发出信号的对象作用域之外建立连接
     //3. 发射信号的对象没有在QML中定义(可能是C++导出的)
     Rectangle{
+        id: rectChgClr;
         anchors.top: btnQuit.bottom;
         anchors.topMargin: 8;
         width: 320;
@@ -87,6 +88,7 @@ ApplicationWindow
             text: "Change";
         }
 
+        //Connection也是一个对象
         Connections{
             target: btnChgClr;
             onClicked:{
@@ -102,9 +104,92 @@ ApplicationWindow
     //    signal <name>[([<type><parameter name[,...]])]
     Component{
         id: compClr;
+
         Rectangle{
             id: rectClrPicker;
+            width: 50;
+            height: 30;
+            anchors.bottom: parent.bottom;
+            color: "red";
 
+            //这里首字母小写
+            signal clrPicked(color clr);
+
+            //信号的定义可以在Connect中实现，也可以在当前对象中实现
+            signal clrReceived(color clr);
+            onClrReceived:{
+                console.log("Received Color in signal! ", color);
+            }
+
+            MouseArea{
+                anchors.fill: parent;
+                onPressed: rectClrPicker.clrPicked(rectClrPicker.color);
+            }
+
+            //>>>----------------------------------------------------------------------------------------------------------
+            //6.信号的连接
+            Component.onCompleted: {
+                //1.信号可以直接连接到一个函数
+                clrPicked.connect(receiveColor);
+                //2.信号连接信号
+                clrPicked.connect(clrReceived);
+            }
+
+            function receiveColor(color)
+            {
+                console.log("Received Color in function! ", color);
+            }
+        }
+    }
+
+    Text{
+        id: txtClr;
+        anchors.horizontalCenter: parent.horizontalCenter;
+        anchors.top: parent.top;
+        anchors.topMargin: 4;
+        anchors.left: rectChgClr.right;
+        anchors.leftMargin: 4;
+        text: "Hello World!";
+        font.pixelSize: 32;
+    }
+
+    Loader{
+        id: ldrRed;
+        anchors.left: parent.left;
+        anchors.leftMargin: 4;
+        anchors.bottom: parent.bottom;
+        anchors.bottomMargin: 4;
+        sourceComponent: compClr;
+        onLoaded: {
+            item.color = "red";
+        }
+    }
+
+    Loader{
+        id: ldrBlue;
+        anchors.left: ldrRed.right;
+        anchors.leftMargin: 4;
+        anchors.bottom: parent.bottom;
+        anchors.bottomMargin: 4;
+        sourceComponent: compClr;
+        onLoaded: {
+            item.color = "blue";
+        }
+    }
+
+    Connections{
+        target: ldrRed.item;
+        //注意: 这里首字母变大写
+        onClrPicked:{
+            txtClr.color = clr;
+        }
+    }
+
+    Connections{
+        target: ldrBlue.item;
+        //注意: 这里首字母变大写
+        onClrPicked:{
+            txtClr.color = clr;
         }
     }
 }

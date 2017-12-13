@@ -1,0 +1,34 @@
+import QtQuick 2.7
+import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.3
+
+
+ApplicationWindow
+{
+    visible: true;
+    width:600;
+    height: 600;
+
+    //绘制一个矩形，当鼠标左键按
+    MouseArea{
+        anchors.fill: parent;
+        acceptedButtons: Qt.LeftButton | Qt.RightButton;
+
+        onClicked: {
+            if(mouse.button === Qt.RightButton){
+                Qt.quit();
+            }
+            else if( mouse.button === Qt.LeftButton){
+                color = Qt.rgba(
+                            (mouse.x % 255) / 255.0,
+                            (mouse.y % 255) / 255.0,
+                            0.6,
+                            1);
+            }
+        }
+
+        onDoubleClicked: {
+            color = "gray";
+        }
+    }
+}
