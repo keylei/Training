@@ -43,5 +43,12 @@
         <file>Chapter5/02_Mouse.qml</file>
         <file>Chapter5/03_Keys.qml</file>
         <file>Chapter5/04_Timer.qml</file>
+        <file>Chapter6/01_NestedComponent.qml</file>
+        <file>qrc_qml.cpp</file>
+        <file>Chapter6/02_IndependentComponent.qml</file>
+        <file>Component/ColorPicker.qml</file>
+        <file>Chapter6/03_Loader.qml</file>
+        <file>Chapter6/04_Loader_dynObj.qml</file>
+        <file>Chapter6/05_ES_dynObj.qml</file>
     </qresource>
 </RCC>
