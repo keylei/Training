@@ -9,7 +9,13 @@ Animal::Animal()
 
 Animal::Animal(int age)
 {
+    this->m_age = age;
     cout<<"Base parameterized constructor"<<endl;
+}
+
+Animal::~Animal()
+{
+    cout<<"Base destruct..."<<endl;
 }
 
 void Animal::sleep()

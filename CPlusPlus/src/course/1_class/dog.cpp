@@ -2,15 +2,21 @@
 
 using namespace std;
 
-//Dog::Dog()
-//{
-//     cout << "Derived default constructor"<<endl;
-//}
+Dog::Dog()
+{
+    cout << "Derived default constructor"<<endl;
+}
 
-////在子类中显式的调用带参数的构造函数
-//Dog::Dog(int age)/*:Animal(age)*/
+Dog::~Dog()
+{
+    cout << "Derived destruct..."<<endl;
+}
+
+//在子类中显式的调用带参数的构造函数
+//Dog::Dog(int age): Animal(age)
 //{
-//    Base(age);
+////    this->m_age = age;
+////    base(age);
 //     cout << "Derived parameterized constructor"<<endl;
 //}
 

@@ -15,7 +15,8 @@ public:
      */
     using Animal::Animal;
 
-//    Dog();
+    Dog();
+    virtual  ~Dog();
 //    Dog(int age);
 
     virtual void run();

@@ -9,15 +9,18 @@ public:
     Animal();
     Animal(int age);
 
+    virtual ~Animal();
+
 
     void sleep();
-    void run();
+    virtual void run();
 
     int legs() const{ return m_legs;}
     void setLegs(int legs){m_legs = legs;}
 
 private:
     int m_legs{4};
+    int m_age{0};
 };
 
 #endif // ANIMAL_HPP

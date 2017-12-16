@@ -12,7 +12,9 @@ SOURCES += \
     student.cpp \
     3.inheritance.cpp \
     animal.cpp \
-    dog.cpp
+    dog.cpp \
+    IBox.cpp \
+    CandyBox.cpp
 
 HEADERS += \
     cube.hpp \
@@ -20,6 +22,8 @@ HEADERS += \
     ellipse.hpp \
     student.hpp \
     animal.hpp \
-    dog.hpp
+    dog.hpp \
+    IBox.hpp \
+    CandyBox.hpp
 
 DISTFILES +=
