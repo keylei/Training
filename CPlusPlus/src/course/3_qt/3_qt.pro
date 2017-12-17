@@ -2,7 +2,9 @@ QT += qml quick
 
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    Chapter8/colormaker.cpp \
+    Chapter8/changeqmlcolor.cpp
 
 RESOURCES += qml.qrc
 
@@ -31,3 +33,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 STATECHARTS +=
 
 DISTFILES +=
+
+HEADERS += \
+    Chapter8/colormaker.hpp \
+    Chapter8/changeqmlcolor.hpp

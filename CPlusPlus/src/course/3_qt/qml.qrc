@@ -55,5 +55,8 @@
         <file>Chapter7/04_Image.qml</file>
         <file>Chapter7/05_Translate.qml</file>
         <file>Chapter7/06_Clip.qml</file>
+        <file>Chapter8/01_ColorMaker.qml</file>
+        <file>Chapter8/02_CppObjToQml.qml</file>
+        <file>Chapter8/03_CallQml.qml</file>
     </qresource>
 </RCC>

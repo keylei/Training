@@ -50,9 +50,17 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = main.cpp qrc_qml.cpp
+SOURCES       = main.cpp \
+		Chapter8/colormaker.cpp \
+		Chapter8/changeqmlcolor.cpp qrc_qml.cpp \
+		moc_colormaker.cpp \
+		moc_changeqmlcolor.cpp
 OBJECTS       = main.o \
-		qrc_qml.o
+		colormaker.o \
+		changeqmlcolor.o \
+		qrc_qml.o \
+		moc_colormaker.o \
+		moc_changeqmlcolor.o
 DIST          = /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/common/linux.conf \
@@ -235,7 +243,10 @@ DIST          = /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/exceptions.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/lex.prf \
-		3_qt.pro  main.cpp
+		3_qt.pro Chapter8/colormaker.hpp \
+		Chapter8/changeqmlcolor.hpp main.cpp \
+		Chapter8/colormaker.cpp \
+		Chapter8/changeqmlcolor.cpp
 QMAKE_TARGET  = 3_qt
 DESTDIR       = 
 TARGET        = 3_qt
@@ -642,7 +653,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents Chapter8/colormaker.hpp Chapter8/changeqmlcolor.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp Chapter8/colormaker.cpp Chapter8/changeqmlcolor.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -674,6 +686,9 @@ qrc_qml.cpp: qml.qrc \
 		main.cpp \
 		qtquickcontrols2.conf \
 		Component/ColorPicker.qml \
+		Chapter8/02_CppObjToQml.qml \
+		Chapter8/01_ColorMaker.qml \
+		Chapter8/03_CallQml.qml \
 		Chapter7/02_Path.qml \
 		Chapter7/04_Image.qml \
 		Chapter7/01_Basic.qml \
@@ -817,7 +832,19 @@ qrc_qml.cpp: qml.qrc \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmllist.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmlerror.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmldebug.h
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmldebug.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/QQmlContext \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmlcontext.h \
+		Chapter8/colormaker.hpp \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QColor \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QTimerEvent \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QDateTime \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdatetime.h
 	/opt/Qt5.10.0/5.10.0/gcc_64/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -826,8 +853,134 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all:
+compiler_moc_header_make_all: moc_colormaker.cpp moc_changeqmlcolor.cpp
 compiler_moc_header_clean:
+	-$(DEL_FILE) moc_colormaker.cpp moc_changeqmlcolor.cpp
+moc_colormaker.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QColor \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QTimerEvent \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QDateTime \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhash.h \
+		Chapter8/colormaker.hpp \
+		moc_predefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc
+	/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/rime/Code/Training/CPlusPlus/src/course/3_qt -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include Chapter8/colormaker.hpp -o moc_colormaker.cpp
+
+moc_changeqmlcolor.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbasictimer.h \
+		Chapter8/changeqmlcolor.hpp \
+		moc_predefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc
+	/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/rime/Code/Training/CPlusPlus/src/course/3_qt -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include Chapter8/changeqmlcolor.hpp -o moc_changeqmlcolor.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
@@ -838,7 +991,7 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean 
 
 ####### Compile
 
@@ -933,11 +1086,150 @@ main.o: main.cpp /opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QGuiApplication \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmllist.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmlerror.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmldebug.h
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmldebug.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/QQmlContext \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmlcontext.h \
+		Chapter8/colormaker.hpp \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QColor \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QTimerEvent \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QDateTime \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
+
+colormaker.o: Chapter8/colormaker.cpp Chapter8/colormaker.hpp \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QColor \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QTimerEvent \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QDateTime \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhash.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o colormaker.o Chapter8/colormaker.cpp
+
+changeqmlcolor.o: Chapter8/changeqmlcolor.cpp Chapter8/changeqmlcolor.hpp \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbasictimer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o changeqmlcolor.o Chapter8/changeqmlcolor.cpp
 
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp
+
+moc_colormaker.o: moc_colormaker.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_colormaker.o moc_colormaker.cpp
+
+moc_changeqmlcolor.o: moc_changeqmlcolor.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_changeqmlcolor.o moc_changeqmlcolor.cpp
 
 ####### Install
 
