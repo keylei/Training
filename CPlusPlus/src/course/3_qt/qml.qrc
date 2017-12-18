@@ -62,5 +62,6 @@
         <file>Chapter9/02_XmlListModel.qml</file>
         <file>Chapter9/videos.xml</file>
         <file>Chapter9/03_CallCppModel.qml</file>
+        <file>Translation/0_translation.qml</file>
     </qresource>
 </RCC>

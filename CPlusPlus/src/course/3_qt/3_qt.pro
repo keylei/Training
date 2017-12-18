@@ -6,7 +6,9 @@ SOURCES += main.cpp \
     Chapter8/colormaker.cpp \
     Chapter8/changeqmlcolor.cpp \
     Chapter9/VideoListModel.cpp \
-    Chapter9/VideoElement.cpp
+    Chapter9/VideoElement.cpp \
+    Translation/Text.cpp \
+    Translation/Translator.cpp
 
 RESOURCES += qml.qrc
 
@@ -40,4 +42,6 @@ HEADERS += \
     Chapter8/colormaker.hpp \
     Chapter8/changeqmlcolor.hpp \
     Chapter9/VideoListModel.hpp \
-    Chapter9/VideoElement.hpp
+    Chapter9/VideoElement.hpp \
+    Translation/Text.hpp \
+    Translation/Translator.hpp
