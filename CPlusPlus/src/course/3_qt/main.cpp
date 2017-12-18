@@ -5,37 +5,38 @@
 
 #include "Chapter8/colormaker.hpp"
 #include "Chapter8/changeqmlcolor.hpp"
+#include "Chapter9/VideoListModel.hpp"
 
 int main(int argc, char *argv[])
 {
     //>>>----------------------------------------------------------------------------------------------------------
-    //Chapter1 - Chapter7
+    //所有不需要和C++发生交互
 
-    //    //1.默认创建的以QGuiApplication方式
-    //    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    //1.默认创建的以QGuiApplication方式
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    //    /*Qt中有3中类表示Application：
-    //       *1.QCoreApplication: 基类
-    //       *2.QGuiApplication:继承QCoreApplication，在其基础上增加了一些界面处理功能
-    //       *3.QApplication:继承QGuiApplication，在其基础上增加了一些widget的处理功能
-    //       */
-    //    QGuiApplication app(argc, argv);
+    /*Qt中有3中类表示Application：
+               *1.QCoreApplication: 基类
+               *2.QGuiApplication:继承QCoreApplication，在其基础上增加了一些界面处理功能
+               *3.QApplication:继承QGuiApplication，在其基础上增加了一些widget的处理功能
+               */
+    QGuiApplication app(argc, argv);
 
-    //    //在软件中加载qml文件，因为Qt不仅仅是qml
-    //      /*
-    //       * 启动Qt Quick App模式
-    //       * QQmlApplication 搭配Window
-    //       * QQuickView 搭配View
-    //       *
-    //       * QQuickView显示Qml文档，对窗口的控制权在C++代码（如设置窗口标题，）
-    //       * QQmlApplication 加载以window为根对象的QML文档，QML拥有对窗口的控制权
-    //      */
-    //    QQmlApplicationEngine engine;
+    //在软件中加载qml文件，因为Qt不仅仅是qml
+    /*
+               * 启动Qt Quick App模式
+               * QQmlApplication 搭配Window
+               * QQuickView 搭配View
+               *
+               * QQuickView显示Qml文档，对窗口的控制权在C++代码（如设置窗口标题，）
+               * QQmlApplication 加载以window为根对象的QML文档，QML拥有对窗口的控制权
+              */
+    QQmlApplicationEngine engine;
 
-    //     //必须以"qrc:"作为前缀
-    //    engine.load(QUrl(QLatin1String("qrc:/Chapter7/06_Clip.qml")));
-    //    if (engine.rootObjects().isEmpty())
-    //        return -1;
+    //必须以"qrc:"作为前缀
+    engine.load(QUrl(QLatin1String("qrc:/Chapter9/04_TableView.qml")));
+    if (engine.rootObjects().isEmpty())
+        return -1;
 
     //>>>----------------------------------------------------------------------------------------------------------
     //Chapter 8 注册一个QML可用类型
@@ -61,46 +62,55 @@ int main(int argc, char *argv[])
     //>>>----------------------------------------------------------------------------------------------------------
     //3. 在C++中调用Qml对象
 
-    QGuiApplication app(argc, argv);
-    QQmlApplicationEngine engine;
-    engine.load("qrc:/Chapter8/03_CallQml.qml");
+    //    QGuiApplication app(argc, argv);
+    //    QQmlApplicationEngine engine;
+    //    engine.load("qrc:/Chapter8/03_CallQml.qml");
 
-    QObject* pRoot = nullptr;
-    QList< QObject*> rootObjs = engine.rootObjects();
-    int cnt = rootObjs.size();
+    //    QObject* pRoot = nullptr;
+    //    QList< QObject*> rootObjs = engine.rootObjects();
+    //    int cnt = rootObjs.size();
 
-    //1.查找根元素
-    for (int i = 0; i < cnt; ++i)
-    {
-        if(rootObjs.at(i)->objectName() == "wndRoot")
-        {
-            pRoot = rootObjs.at(i);
-            break;
-        }
-    }
+    //    //1.查找根元素
+    //    for (int i = 0; i < cnt; ++i)
+    //    {
+    //        if(rootObjs.at(i)->objectName() == "wndRoot")
+    //        {
+    //            pRoot = rootObjs.at(i);
+    //            break;
+    //        }
+    //    }
 
-    //这里不是很合理，其实就是改变颜色，封装成函数更好
-    new ChangeQmlColor(pRoot);
+    //    //这里不是很合理，其实就是改变颜色，封装成函数更好
+    //    new ChangeQmlColor(pRoot);
 
-    //2.查找Button元素
-    QObject* pQuitBtn = pRoot->findChild<QObject*>("btnQuit");
-    if(nullptr!=pQuitBtn)
-    {
-        //直接绑定了quit函数，是一个静态函数
-        QObject::connect(pQuitBtn, SIGNAL(clicked()), &app, SLOT(quit()));
-    }
+    //    //2.查找Button元素
+    //    QObject* pQuitBtn = pRoot->findChild<QObject*>("btnQuit");
+    //    if(nullptr!=pQuitBtn)
+    //    {
+    //        //直接绑定了quit函数，是一个静态函数
+    //        QObject::connect(pQuitBtn, SIGNAL(clicked()), &app, SLOT(quit()));
+    //    }
 
-    //3.查找Text元素
-    QObject* pHelloTxt = pRoot->findChild<QObject*>("txtHelloWorld");
-    if(nullptr!=pHelloTxt)
-    {
-       bool isSuccessful = QMetaObject::invokeMethod(pHelloTxt, "setText", Q_ARG(QString, "world hello"));
-       qDebug() << "call setText return:" << isSuccessful;
+    //    //3.查找Text元素
+    //    QObject* pHelloTxt = pRoot->findChild<QObject*>("txtHelloWorld");
+    //    if(nullptr!=pHelloTxt)
+    //    {
+    //       bool isSuccessful = QMetaObject::invokeMethod(pHelloTxt, "setText", Q_ARG(QString, "world hello"));
+    //       qDebug() << "call setText return:" << isSuccessful;
 
-       pHelloTxt->setProperty("color", QColor::fromRgb(255, 0, 0));
-       isSuccessful = QMetaObject::invokeMethod(pHelloTxt, "doLayout");
-       qDebug() << "call doLayout return:" << isSuccessful;
-    }
+    //       pHelloTxt->setProperty("color", QColor::fromRgb(255, 0, 0));
+    //       isSuccessful = QMetaObject::invokeMethod(pHelloTxt, "doLayout");
+    //       qDebug() << "call doLayout return:" << isSuccessful;
+    //    }
 
-    return app.exec();
+    //>>>----------------------------------------------------------------------------------------------------------
+    //4.将C++定义的Model到处到QML
+    //    QGuiApplication app(argc, argv);
+
+    //    qmlRegisterType<VideoListModel>("an.qt.CModel", 1, 0, "VideoListModel");
+
+    //    QQmlApplicationEngine engine;
+    //    engine.load("qrc:/Chapter9/03_CallCppModel.qml");
+
+    //    return app.exec();
 }
