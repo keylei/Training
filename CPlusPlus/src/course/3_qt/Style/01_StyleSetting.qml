@@ -56,6 +56,7 @@ ApplicationWindow
             styleSetting.setThemeColor(1, StyleSetting.FORGROUND, wndMain.Material.foreground );
             styleSetting.setThemeColor(1, StyleSetting.BACKGROUND, wndMain.Material.background );
 
+            //这一步很重要，虽然看上去很累赘，但没有这一步会导致主题一直是Dark，暂时还不知道为什么
             wndMain.Material.theme = origTheme;
 
             styleBox.model = styleSetting.themeList;
