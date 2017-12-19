@@ -2,11 +2,16 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext> //注意： 使用qml导出C++对象一定要加这一行
 #include <QDebug>
+#include <QFile>
+#include <QSettings>
+#include <QQuickStyle>
+#include <QIcon>
 
 #include "Chapter8/colormaker.hpp"
 #include "Chapter8/changeqmlcolor.hpp"
 #include "Chapter9/VideoListModel.hpp"
 #include "Translation/Translator.hpp"
+#include "Style/StyleSetting.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -117,20 +122,51 @@ int main(int argc, char *argv[])
 
     //>>>----------------------------------------------------------------------------------------------------------
     //5. 翻译
+    //    QGuiApplication app(argc, argv);
+
+    //    //必须安装一个Translator实例
+    //    QQmlApplicationEngine engine;
+    //    app.installTranslator(Translator::instance());
+
+    //    Translator::instance()->setPEngine(&engine);
+
+    //    //把translator对象传入qml
+    //    engine.rootContext()->setContextProperty("translator", Translator::instance());
+
+    //    engine.load("qrc:/Translation/0_translation.qml");
+
+    //>>>----------------------------------------------------------------------------------------------------------
+    //6.样式设定
     QGuiApplication app(argc, argv);
 
     //必须安装一个Translator实例
     QQmlApplicationEngine engine;
-    app.installTranslator(Translator::instance());
-
-    Translator::instance()->setPEngine(&engine);
-
     //把translator对象传入qml
-    engine.rootContext()->setContextProperty("translator", Translator::instance());
 
+    //设定图标路径
+    QIcon::setThemeName("3_qt");
 
+    qmlRegisterType<StyleSetting>("an.qt.StyleSetting", 1, 0, "StyleSetting");
 
-    engine.load("qrc:/Translation/0_translation.qml");
+    QFile file( "./setting.ini");
+    QSettings setting( "./setting.ini", QSettings::Format::IniFormat );
+    if(!file.exists())
+    {
+        setting.setValue("Controls/Style", "Material");
+        setting.setValue("Material/Theme", "Light");
+        setting.setValue("Material/Accent", "Pink");
+        setting.setValue("Material/Primary", "Brown");
+        setting.setValue("Material/Foreground", "Pink");
+        setting.setValue("Material/Background", "Teal");
+    }
+    else
+    {
+        auto style = setting.value("Controls/Style").toString();
+//        QQuickStyle::setStyle(setting.value("Controls/Style").toString());
+        QQuickStyle::setStyle("Material");
+    }
+
+    engine.load("qrc:/Style/01_StyleSetting.qml");
 
     return app.exec();
 }

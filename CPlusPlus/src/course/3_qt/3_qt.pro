@@ -1,4 +1,5 @@
 QT += qml quick
+QT += quick quickcontrols2
 
 CONFIG += c++11
 
@@ -8,7 +9,8 @@ SOURCES += main.cpp \
     Chapter9/VideoListModel.cpp \
     Chapter9/VideoElement.cpp \
     Translation/Text.cpp \
-    Translation/Translator.cpp
+    Translation/Translator.cpp \
+    Style/StyleSetting.cpp
 
 RESOURCES += qml.qrc
 
@@ -36,7 +38,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 STATECHARTS +=
 
-DISTFILES +=
+DISTFILES += \
+    setting.ini
 
 HEADERS += \
     Chapter8/colormaker.hpp \
@@ -44,4 +47,6 @@ HEADERS += \
     Chapter9/VideoListModel.hpp \
     Chapter9/VideoElement.hpp \
     Translation/Text.hpp \
-    Translation/Translator.hpp
+    Translation/Translator.hpp \
+    Style/StyleSetting.hpp \
+    metaeeum.hpp
