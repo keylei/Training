@@ -56,7 +56,9 @@ ApplicationWindow
             //                colorPicker.colorPicked.connect(rect1.changeTextColor);
             //            }
 
-            //通过CreateQmlObj直接创建对象
+            //2.从QML字符串创建Component
+            //需要在运行过程中根据应用的状态适时地生成用于描述对象的QML字符串，进而根据
+            //这个QML字符串创建对象
             var createString =
                     'import QtQuick 2.7;'+
                     'import QtQuick.Controls 2.2;'+
@@ -91,10 +93,8 @@ ApplicationWindow
     }
 
     //>>>----------------------------------------------------------------------------------------------------------
-    //2.从QML字符串创建Component
-    //需要在运行过程中根据应用的状态适时地生成用于描述对象的QML字符串，进而根据
-    //这个QML字符串创建对象
-    //使用Loader创建的, 应当通过将source设置为空串或者sourceComponent设置为undefinded触发
+
+    //应当通过将source设置为空串或者sourceComponent设置为undefinded触发
     //Loader销毁它们
     //delete() 不会立即删除，会在当前代码执行接受后的某个合适的时刻删除它们
     Button{
