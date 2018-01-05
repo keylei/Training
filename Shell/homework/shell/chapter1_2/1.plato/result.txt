@@ -1,0 +1,7 @@
+变量a的值为：3
+变量b的值为：7
+a与b相加值为：10
+环境PATH是"/usr/local/cuda-8.0/bin:/home/rime/bin:/home/rime/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+姓名：plato
+年龄：22
+收入：1234.57

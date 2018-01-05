@@ -1,0 +1,13 @@
+#! /bin/bash 
+echo "">>info.txt
+ a=$(echo $SHELL)
+echo "1.bash版本: " $a >> info.txt
+echo "" >> info.txt
+echo "">>info.txt
+a=$( env $DISPLAY )
+echo "2.display的名字:" $a >> info.txt
+printf "\n ">> info.txt
+ b=$(ls -l ~/)
+echo "3.用户主目录信息:">> info.txt
+echo "" $b >> info.txt
+echo "">>info.txt

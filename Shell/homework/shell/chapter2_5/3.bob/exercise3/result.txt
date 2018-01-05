@@ -1,0 +1,21 @@
+对文件"１"去重复输出: 
+10
+20
+30
+40
+50
+60
+70
+80
+
+对文件"2"每行前５个字符去重复输出: 
+hello summer
+good morning
+
+
+将"2"这个文件中含有hello的行全部转化为大写后追加输出到result.txt中　
+HELLO SUMMER
+HELLO GRACE
+HELLO GIRLS
+HELLO RIME&CHANNING&BOB
+HELLO PLATO

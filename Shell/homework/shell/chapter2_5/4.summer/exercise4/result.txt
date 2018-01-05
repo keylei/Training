@@ -1,0 +1,41 @@
+显示文件orig.txt和new.txt内容：
+     1	hello
+     2	new world
+     3	China
+     4	USA
+     5	Europe
+     6	confucious
+     7	motze
+     8	add sth here...
+     9	we are friends
+    10	that is perfect
+    11	wangfei is funny guy
+    12	new blabla...
+    13	ok is
+
+     1	hello
+     2	old world
+     3	China is great nation
+     4	USA 
+     5	Europe
+     6	confucious
+     7	motze
+     8	we are friends
+     9	wahaha
+====================================================================
+输出orig.txt和new.txt中不同部分：
+hello								hello
+new world						      |	old world
+China							      |	China is great nation
+USA								USA 
+Europe								Europe
+confucious							confucious
+motze								motze
+add sth here...						      <
+we are friends							we are friends
+that is perfect						      |	wahaha
+wangfei is funny guy					      <
+new blabla...						      <
+ok is							      <
+====================================================================
+查看用tar来实现bzip2压缩打包：-rw-rw-r-- 1 rime rime 557 8月   8 09:59 result.tar.bz2

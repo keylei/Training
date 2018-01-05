@@ -1,0 +1,18 @@
+#! /bin/bash
+echo "">>result.txt
+echo "a=3 b=7" >>result.txt
+a=3 b=7
+let c=$a+$b
+echo "">>result.txt
+printf "a+b=%d\n" $c >> result.txt
+echo "">>result.txt
+d=$PATH
+echo "环境变量PATH:" $d >> result.txt
+printf "\n"  >> result.txt
+s=summer
+n=21
+r=10000
+printf "姓名：%s 年龄：%d  收入:%s \n" $s $n $r >> result.txt
+printf "\n"  >> result.txt
+
+

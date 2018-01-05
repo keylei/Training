@@ -1,0 +1,7 @@
+合并"name"和"age"
+name  age
+bob:23
+byron:17
+channing:35
+plato:50
+rime:20

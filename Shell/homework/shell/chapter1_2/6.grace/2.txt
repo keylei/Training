@@ -1,0 +1,14 @@
+The bash version is : 4.3.48(1)-release
+Display's name is: :0
+The Home is: /home/rime
+a+b=10
+The PATH is :/usr/local/cuda-8.0/bin:/home/rime/bin:/home/rime/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+姓名:gr 年龄:20 收入:100.00
+I
+AM
+A
+CHINESE
+His English level is CET6
+The path is set to /home/grace/1.txt
+homegrace1.txt
+i is deifined as 10 echo "" result is 10 echo '' result is '10'

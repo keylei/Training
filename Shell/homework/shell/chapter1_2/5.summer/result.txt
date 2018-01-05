@@ -1,0 +1,9 @@
+
+a=3 b=7
+
+a+b=10
+
+环境变量PATH: /usr/local/cuda-8.0/bin:/home/rime/bin:/home/rime/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+姓名：summer 年龄：21  收入:10000 
+

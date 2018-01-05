@@ -1,0 +1,5 @@
+byron;17
+rime;20
+bob;23
+channing;35
+plato;50

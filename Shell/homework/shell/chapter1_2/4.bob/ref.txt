@@ -1,0 +1,20 @@
+peter
+is
+a
+good
+student
+peterlove123
+the path : /home/bob/
+单引号输出:　'i love china'	'/etc/var/'	'/home/rime/桌面/题目/bob'
+双引号输出:　"i love china"	"/etc/var/"	"/home/rime/桌面/题目/bob"
+大括号输出:　i love china	/etc/var/	/home/rime/桌面/题目/bob
+peter
+is
+a
+good
+student
+peterlove123
+the path : /home/bob/
+单引号输出:　'i love china'	'/etc/var/'	'/home/rime/桌面/题目/bob'
+双引号输出:　"i love china"	"/etc/var/"	"/home/rime/桌面/题目/bob"
+大括号输出:　i love china	/etc/var/	/home/rime/桌面/题目/bob

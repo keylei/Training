@@ -1,0 +1,10 @@
+左边"orig.txt"独有，右边"new.txt"独有，"|"表示差异行，"<"表示"orig.txt"多出的行：
+
+new world						      |	old world
+China							      |	China is great nation
+USA							      |	USA 
+add sth here...						      <
+that is perfect						      |	wahaha
+wangfei is funny guy					      <
+new blabla...						      <
+ok is							      <

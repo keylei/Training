@@ -23,26 +23,19 @@ int main()
     //>>>----------------------------------------------------------------------------------------------------------
     //删除指针的容器时避免资源泄漏
 
-    //    vector<int*> vec;
-    //    int cnt = 10 ;
-    //    for (int i = 0; i < cnt; ++i)
+//    vector<int*> vec;
+//    int cnt = 10 ;
+//    for (int i = 0; i < cnt; ++i)
+//    {
+//        vec.push_back(new int);
+//    }
+
+    //    auto iter = vec.begin();
+    //    while(iter != vec.end())
     //    {
-    //        vec.push_back(new int);
+    //        delete *iter;
+    //        iter++;
     //    }
-
-    //        vector<int*> vec;
-    //        int cnt = 10 ;
-    //        for (int i = 0; i < cnt; ++i)
-    //        {
-    //            vec.push_back(new int);
-    //        }
-
-    //        auto iter = vec.begin();
-    //        while(iter != vec.end())
-    //        {
-    //            delete *iter;
-    //            iter++;
-    //        }
 
     //    vector<shared_ptr<int>> vec;
     //    int cnt = 10 ;
@@ -69,18 +62,18 @@ int main()
     auto start = chrono::steady_clock::now();
 
     //1167
-    auto iter = vec.begin();
-    while(iter != vec.end())
-    {
-        iter->func();
-        iter++;
-    }
+//    auto iter = vec.begin();
+//    while(iter != vec.end())
+//    {
+//        iter->func();
+//        iter++;
+//    }
 
-    //813
-//    for_each(vec.begin(), vec.end(), mem_fun_ref(&person::func));
+//    //813
+    for_each(vec.begin(), vec.end(), mem_fun_ref(&person::func));
 
-    auto end = chrono::steady_clock::now();
-    cout << chrono::duration <double, milli> (end-start).count() <<endl;
+//    auto end = chrono::steady_clock::now();
+//    cout << chrono::duration <double, milli> (end-start).count() <<endl;
 
 
     return 0;

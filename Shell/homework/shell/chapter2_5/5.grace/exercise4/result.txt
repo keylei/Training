@@ -1,0 +1,11 @@
+orig.txt和new.txt中不同部分:
+new world
+China
+USA
+add sth here...
+that is perfect
+wangfei is funny guy
+new blabla...
+ok is
+old world
+wahaha

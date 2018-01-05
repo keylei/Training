@@ -1,0 +1,6 @@
+合并"name"和"age"文件,按年龄排序:
+byron	17
+rime	20
+bob	23
+channing	35
+plato	50

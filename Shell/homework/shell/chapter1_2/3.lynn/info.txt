@@ -1,0 +1,3 @@
+bash版本：4.3.48(1)-release
+X display名字：:0
+用户主目录信息：/home/rime

@@ -1,0 +1,40 @@
+#! /bin/bash
+echo "">>  ref.txt
+echo "1.带空格的字符串，然后通过循环通过空格分割成若干个单词然后分行输出到ref.txt"> ref.txt
+s="a b c"
+echo "带空格的字符串为: \"$s"\" >> ref.txt
+echo "循环输出:" >> ref.txt
+for lala in $s; 
+do  
+		echo "$lala" >> ref.txt 
+done
+
+echo "">>ref.txt
+echo "">>  ref.txt
+echo "2.将一个变量值和某一段字符串直接连接输出到ref.txt（中间不能有空格）">> ref.txt
+let a=123
+b="456"
+printf "变量a为:%s, 字符串str为:%s\n" $a $b >> ref.txt
+printf "直接连接: %s%s\n" $a $b >> ref.txt
+echo "">>ref.txt
+echo "">>  ref.txt
+echo "3.自行赋值一个路径字符串变量，然后确保输出到ref.txt中没有多余的反斜杠">> ref.txt
+path="/summer/home/"
+echo "路径：" $path >> ref.txt
+echo "正确 ${path}$a" >> ref.txt
+echo "">>ref.txt
+echo "">>  ref.txt
+echo "4.实现单双引号变量以及{}变量扩展来输出变量 要有充分的信息输出从而确保读者可以在ref.txt中很清楚看懂它们的区别">> ref.txt
+echo "单双引号的区别举例1: 避免被拆分">> ref.txt
+echo '\\\\\"' >> ref.txt
+var2="\\\\\""
+echo "双引号情况下的输出: " $var2 >> ref.txt
+var2='\\\\\"'
+echo "双引号情况下的输出: "$var2 >> ref.txt
+echo "">> ref.txt
+echo "{}变量扩展的作用举例:">> ref.txt
+echo "{10..1..-2}">> ref.txt
+echo {10..1..-2} >> ref.txt
+
+
+

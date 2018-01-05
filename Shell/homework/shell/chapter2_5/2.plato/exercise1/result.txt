@@ -1,0 +1,8 @@
+所有后缀名为".txt"的内容：
+hahaha...
+this is content of "b.txt" 
+note: without extension filename
+this is content of "a.txt"
+
+所有权限为777的文件内容：
+this is content of "d.txt"

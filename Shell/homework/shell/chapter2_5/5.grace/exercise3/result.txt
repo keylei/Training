@@ -1,0 +1,16 @@
+对1去重复，对2前5个字符去重复：
+10
+20
+30
+40
+50
+60
+70
+hello summer
+good morning
+2中含有hello的行转化为大写：
+HELLO SUMMER
+HELLO GRACE
+HELLO GIRLS
+HELLO RIME&CHANNING&BOB
+HELLO PLATO

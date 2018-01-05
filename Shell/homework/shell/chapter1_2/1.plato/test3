@@ -1,0 +1,40 @@
+#! /bin/bash
+#3、写一个脚本，通过执行它可以达到以下目的并逐行输出到ref.txt中
+#   a.)带空格的字符串，然后通过循环通过空格分割成若干个单词然后分行输出到ref.txt
+#   b.)将一个变量值和某一段字符串直接连接输出到ref.txt（中间不能有空格）
+#   c.)自行赋值一个路径字符串变量，然后确保输出到ref.txt中没有多余的反斜杠
+#   d.)实现单双引号变量以及{}变量扩展来输出变量 要有充分的信息输出从而确保读者可以在ref.txt中很清楚看懂它们的区别
+
+LIST="one two three"
+echo "带空格的字符串为：\"$LIST\"" >> ref.txt
+echo "分行输出：" >> ref.txt
+for var in $LIST; 
+do  
+	echo "$var" >> ref.txt 
+done
+echo "" >> ref.txt
+
+
+let a=1
+string="plato"
+printf "变量a为：%d, 字符串string为：%s\n" $a $string >> ref.txt
+printf "连接：%d%s\n" $a $string >> ref.txt
+echo "" >> ref.txt
+
+
+path="/home/"
+echo "路径一：$path" >> ref.txt
+echo "路径二：${path}$string" >> ref.txt
+echo "" >> ref.txt
+
+
+echo "单双引号的区别：" >> ref.txt
+echo '例如：\\\\\"' >> ref.txt
+var2="\\\\\""
+echo "双引号输出: $var2" >> ref.txt
+var2='\\\\\"'
+echo "单引号输出: $var2" >> ref.txt
+echo "" >> ref.txt
+echo "{}变量扩展输出变量：" >> ref.txt
+echo "$ echo {1..10..2}" >> ref.txt
+echo {1..10..2} >> ref.txt

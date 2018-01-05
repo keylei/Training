@@ -1,0 +1,43 @@
+#! /bin/bash
+
+#create result.txt
+touch result.txt
+
+#display a,b's value
+echo -en "变量a的值:a=3\n变量b的值:b=7\n" >> result.txt
+
+#input a,b's value
+a=3
+b=7
+
+#display a+b's value
+echo  "变量a+b的值:a+b=" $[$[a]+$[b]] >> result.txt
+echo -en "\n" >> result.txt
+
+
+
+
+#display PATH
+myPath=${PATH}
+echo -en "my custom Path:myPath=\${PATH}\n" >> result.txt
+echo -en "环境PATH:" >> result.txt
+echo $myPath >> result.txt
+echo -en "\n" >> result.txt
+
+
+
+
+#input value
+name="peter"
+age=25
+earning=1000
+
+echo -en "input value:\n\tname=\"peter\"\n\tage=25\n\tearning=1000\n" >> result.txt
+
+#display name,age,earning
+echo -en "display name,age,earning message:\n" >> result.txt
+printf "\t姓名:%s\n" $name >> result.txt
+printf "\t年龄:%d\n" $age >> result.txt
+printf "\t收入:%7.2f\n" $earning >> result.txt
+
+

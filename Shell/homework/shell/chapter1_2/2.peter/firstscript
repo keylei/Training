@@ -1,0 +1,17 @@
+#! /bin/bash
+
+#create info.txt
+touch info.txt
+
+
+#display bash version
+echo -en "bash version:\t$BASH_VERSION\n" >> info.txt
+
+#display x display name
+echo -en "x display name:\t$DISPLAY\n" >> info.txt
+
+#display home path
+echo -en "home path:\t$HOME\n" >> info.txt
+
+
+

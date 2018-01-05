@@ -1,0 +1,15 @@
+变量a的值:a=3
+变量b的值:b=7
+变量a+b的值:a+b= 10
+
+my custom Path:myPath=${PATH}
+环境PATH:/usr/local/cuda-8.0/bin:/home/rime/bin:/home/rime/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+input value:
+	name="peter"
+	age=25
+	earning=1000
+display name,age,earning message:
+	姓名:peter
+	年龄:25
+	收入:1000.00

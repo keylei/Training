@@ -1,0 +1,2 @@
+this is content of "b.txt" 
+note: without extension filename

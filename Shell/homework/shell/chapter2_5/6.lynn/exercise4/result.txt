@@ -1,0 +1,19 @@
+文件new.txt中的不同部分：
+< old world
+< China is great nation
+< USA 
+< wahaha
+
+
+
+文件orig.txt中的不同部分：
+< China is great nation
+< USA 
+> new world
+> China
+> USA
+> add sth here...
+> that is perfect
+> wangfei is funny guy
+> new blabla...
+> ok is

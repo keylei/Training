@@ -1,0 +1,13 @@
+display list value:
+  list="one two three four five"
+one
+two
+three
+four
+five
+
+myHome变量:myHome=${HOME}
+list字符串:list="/vedio"
+connect myHome and list:/home/rime/vedio
+
+my vedio path:/home/rime/vedio/xxx.avi

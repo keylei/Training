@@ -1,0 +1,19 @@
+删除文件1中的重复行与文件2中前5列重复的行:
+10
+20
+30
+40
+50
+60
+70
+hello summer
+good morning
+
+将文件2中含有hello的行转化为大写:
+HELLO SUMMER
+HELLO GRACE
+HELLO GIRLS
+HELLO RIME&CHANNING&BOB
+HELLO PLATO
+good morning
+good evening

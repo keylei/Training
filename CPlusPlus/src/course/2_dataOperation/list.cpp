@@ -10,7 +10,7 @@
 //    list <int> :: iterator it;
 //    for(it = shownList.begin(); it != shownList.end(); ++it)
 //        cout << '\t' << *it;
-//            cout << '\n';
+//    cout << '\n';
 //}
 
 //int main()

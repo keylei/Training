@@ -1,0 +1,8 @@
+后缀名为.txt的文件（含子目录）为：
+./a.txt
+./b.txt
+./d.txt
+./result.txt
+./sub/haha.txt
+输出权限为777的文件
+./d.txt

@@ -1,0 +1,4 @@
+LotName	PCBCnt	ComponentCnt	NgComponentCnt  falseCallComponentCnt
+iphone5 0 0 0
+matepro9  0 0 0
+mi6s  0 0 0

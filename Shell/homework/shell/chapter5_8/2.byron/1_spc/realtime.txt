@@ -1,0 +1,2 @@
+Name  OK(%)   HEIGTH(MAX)    HEIGTH(MIN)    HEIGTH(Avg)    
+R1    25.00   529.53         337.36         431.73         

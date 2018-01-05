@@ -1,0 +1,13 @@
+"new.txt"与"orig.txt"不同的行:
+new world						      |	old world
+China							      |	China is great nation
+USA							      |	USA 
+that is perfect						      |	wahaha
+
+"new.txt"比"orig.txt"多的行:
+
+"new.txt"比"orig.txt"少的行:
+add sth here...						      <
+wangfei is funny guy					      <
+new blabla...						      <
+ok is							      <

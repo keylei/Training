@@ -1,0 +1,21 @@
+#! /bin/bash
+#2、写一个脚本，通过执行它可以达到以下目的并逐行输出到result.txt中
+#   a.) 通过变量a=3 b=7 实现相加结果并输出到result.txt
+#   b.) 将环境变量PATH输出到一个自定义变量 然后将这个变量输出到result.txt
+#   c.) 通过printf打印到result.txt中 内容是“姓名： xxx 年龄：xxx 收入：xxx" 要通过变量然后替代格式化输出里面的分类符号实现 收入要求必须是浮点数，保留小数点后两位即可
+
+a=3
+b=7
+let c=a+b
+echo "变量a的值为：$a" >> result.txt
+echo "变量b的值为：$b" >> result.txt
+echo "a与b相加值为：$c" >> result.txt
+
+CUSTOM=$(echo $PATH)
+echo "环境PATH是\"$CUSTOM\"" >> result.txt
+
+name=plato
+age=22
+income=1234.5678
+printf "姓名：%s\n年龄：%d\n收入：%.2f\n" $name $age $income >> result.txt
+

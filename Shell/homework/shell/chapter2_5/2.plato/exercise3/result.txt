@@ -1,0 +1,17 @@
+去重后合并输出：
+10
+20
+30
+40
+50
+60
+70
+hello summer
+good morning
+
+追加输出的内容：
+HELLO SUMMER
+HELLO GRACE
+HELLO GIRLS
+HELLO RIME&CHANNING&BOB
+HELLO PLATO

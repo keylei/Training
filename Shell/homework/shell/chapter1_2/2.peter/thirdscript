@@ -1,0 +1,45 @@
+#! /bin/bash
+
+#create ref.txt
+touch ref.txt
+
+#list value
+list="one two three four five"
+
+#display list value
+echo -en "display list value:\n  list=\"one two three four five\"\n" >> ref.txt
+
+for var in $list
+do
+	echo $var >> ref.txt
+done
+echo -en "\n" >> ref.txt
+
+
+
+
+
+#input myHome and list value
+myHome=${HOME}
+list="/vedio"
+
+#display myHome and list message
+echo "myHome变量:myHome=\${HOME}" >> ref.txt
+echo "list字符串:list=\"/vedio\"" >> ref.txt
+
+#connect myHome and list
+echo -en "connect myHome and list:${HOME}${list}\n" >> ref.txt
+
+
+
+
+
+#the custom file path
+echo -en "\nmy vedio path:${myHome}${list}/xxx.avi" >> ref.txt
+
+
+
+
+
+#different of '' "" {}
+

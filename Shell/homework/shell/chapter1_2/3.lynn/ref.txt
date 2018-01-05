@@ -1,0 +1,14 @@
+monday
+tuesday
+wednesday
+perfect!!!!!!good!
+/home/augus/
+变量为string1,值为mondat tuesdy wednesday 
+用单引号输出变量：
+$string1
+用双引号输出变量
+monday tuesday wednesday
+不加大括号输出变量+字符串abc
+
+加大括号输出变量+字符串abc
+monday tuesday wednesdayabc

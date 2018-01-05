@@ -1,0 +1,5 @@
+环境PATH是：/usr/local/cuda-8.0/bin:/home/rime/bin:/home/rime/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+ a: 3 
+ b: 7 
+ a+b: 10.00 
+姓名：yy	年龄：12	收入： 56789.12 
