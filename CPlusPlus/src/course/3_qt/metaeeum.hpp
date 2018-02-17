@@ -8,6 +8,8 @@
 
 namespace SSDK
 {
+
+
             /**
              * @brief
              * Because c++ enumeration is does not support the reflection.

@@ -166,7 +166,7 @@ int main(int argc, char *argv[])
         QQuickStyle::setStyle("Material");
     }
 
-    engine.load("qrc:/Style/01_StyleSetting.qml");
+    engine.load("qrc:/Chapter3/01_Text.qml");
 
     return app.exec();
 }

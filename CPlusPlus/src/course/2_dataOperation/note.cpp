@@ -52,7 +52,7 @@ int main()
 //    a[1]=3;
 //    a[2]=4;
 
-    int cnt = 50000000;
+    int cnt = 500000;
     vector<person> vec;
     for (int i = 0; i < cnt; ++i)
     {

@@ -35,6 +35,7 @@ ApplicationWindow
         validator: IntValidator{ top: 15; bottom: 6;}
         focus: true;
 
+
         onAccepted: {
             console.log(txtin.text);
         }

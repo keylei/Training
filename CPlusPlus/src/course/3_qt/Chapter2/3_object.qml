@@ -8,8 +8,8 @@ ApplicationWindow
     width:800;
     height: 600;
 
-    property var rime: new Object();
-    property var array: new Array();
+    property var rime: new Object;
+    property var array: new Array;
     property int  age: 10;
 
     function replacer(key, value){
